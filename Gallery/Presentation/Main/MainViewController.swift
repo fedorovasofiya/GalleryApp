@@ -59,7 +59,7 @@ final class MainViewController: UIViewController {
     // MARK: - Actions
     
     @objc private func didTapEnter() {
-        
+        navigationController?.pushViewController(GalleryViewController(), animated: true)
     }
 
 }
