@@ -14,10 +14,12 @@ final class RootCoordinatorImpl: RootCoordinator {
 
     private let authAssembly: AuthAssembly
     private let galleryAssembly: GalleryAssembly
+    private let detailsAssembly: DetailsAssembly
     
-    init(authAssembly: AuthAssembly, galleryAssembly: GalleryAssembly) {
+    init(authAssembly: AuthAssembly, galleryAssembly: GalleryAssembly, detailsAssembly: DetailsAssembly) {
         self.authAssembly = authAssembly
         self.galleryAssembly = galleryAssembly
+        self.detailsAssembly = detailsAssembly
     }
     
     func start(in window: UIWindow) {
@@ -39,6 +41,11 @@ final class RootCoordinatorImpl: RootCoordinator {
         let navigationController = UINavigationController(rootViewController: authViewController)
         window?.rootViewController?.present(navigationController, animated: true)
     }
+    
+    func openDetails(for indexPhoto: Int, data: [ImageModel]) {
+        let detailsViewController = detailsAssembly.makeDetailsModule(data: data, currentIndex: indexPhoto, coordinator: self)
+        (window?.rootViewController as? UINavigationController)?.pushViewController(detailsViewController, animated: true)
+    }
 
 }
 
@@ -51,8 +58,8 @@ extension RootCoordinatorImpl: GalleryCoordinator {
         openGallery()
     }
     
-    func openDetails() {
-        
+    func openDetailsScreen(for indexPhoto: Int, data: [ImageModel]) {
+        openDetails(for: indexPhoto, data: data)
     }
 }
 
@@ -61,7 +68,13 @@ extension RootCoordinatorImpl: AuthCoordinator {
         openGallery()
     }
     
-    func close() {
+    func closeAuth() {
         window?.rootViewController?.dismiss(animated: true)
+    }
+}
+
+extension RootCoordinatorImpl: DetailsCoordinator {
+    func closeDetails() {
+        (window?.rootViewController as? UINavigationController)?.popViewController(animated: true)
     }
 }

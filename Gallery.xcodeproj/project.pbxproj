@@ -48,6 +48,12 @@
 		EB6D936A29FEE3D9008AAAC8 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6D936929FEE3D9008AAAC8 /* NetworkError.swift */; };
 		EB6D937029FEEB24008AAAC8 /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6D936F29FEEB23008AAAC8 /* ImageModel.swift */; };
 		EB6D937429FEF6BE008AAAC8 /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6D937329FEF6BE008AAAC8 /* APIResponse.swift */; };
+		EB6D937729FF0C90008AAAC8 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6D937629FF0C90008AAAC8 /* DetailsViewController.swift */; };
+		EB6D937929FF0C9D008AAAC8 /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6D937829FF0C9D008AAAC8 /* DetailsViewModel.swift */; };
+		EB6D937B29FF0CAB008AAAC8 /* DetailsViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6D937A29FF0CAB008AAAC8 /* DetailsViewOutput.swift */; };
+		EB6D938229FF1197008AAAC8 /* DetailsAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6D938129FF1197008AAAC8 /* DetailsAssembly.swift */; };
+		EB6D938429FF11A4008AAAC8 /* DetailsAssemblyImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6D938329FF11A4008AAAC8 /* DetailsAssemblyImpl.swift */; };
+		EB6D938629FF11C7008AAAC8 /* DetailsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6D938529FF11C6008AAAC8 /* DetailsCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -95,6 +101,12 @@
 		EB6D936929FEE3D9008AAAC8 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		EB6D936F29FEEB23008AAAC8 /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
 		EB6D937329FEF6BE008AAAC8 /* APIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
+		EB6D937629FF0C90008AAAC8 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		EB6D937829FF0C9D008AAAC8 /* DetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModel.swift; sourceTree = "<group>"; };
+		EB6D937A29FF0CAB008AAAC8 /* DetailsViewOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewOutput.swift; sourceTree = "<group>"; };
+		EB6D938129FF1197008AAAC8 /* DetailsAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsAssembly.swift; sourceTree = "<group>"; };
+		EB6D938329FF11A4008AAAC8 /* DetailsAssemblyImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsAssemblyImpl.swift; sourceTree = "<group>"; };
+		EB6D938529FF11C6008AAAC8 /* DetailsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsCoordinator.swift; sourceTree = "<group>"; };
 		EEACD74A07E757E0BD130B5B /* Pods-Gallery.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gallery.debug.xcconfig"; path = "Target Support Files/Pods-Gallery/Pods-Gallery.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -190,8 +202,9 @@
 				EB6D930E29FDE255008AAAC8 /* ServiceAssembly */,
 				EB6D92FD29FDE099008AAAC8 /* Services */,
 				EB6D936C29FEE6FF008AAAC8 /* Models */,
-				EB6D92EA29FDC99E008AAAC8 /* Protocols */,
+				EB6D937F29FF0D54008AAAC8 /* Common */,
 				EB6D92E929FDC998008AAAC8 /* Extensions */,
+				EB6D92EA29FDC99E008AAAC8 /* Protocols */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -254,6 +267,7 @@
 		EB6D92FE29FDE0CC008AAAC8 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				EB6D937529FF06C2008AAAC8 /* Details */,
 				EB6D92F129FDCCBC008AAAC8 /* Gallery */,
 				EB6D92F529FDCF33008AAAC8 /* Auth */,
 			);
@@ -327,6 +341,7 @@
 				EB6D930229FDE0FC008AAAC8 /* RootCoordinator.swift */,
 				EB6D932329FDE710008AAAC8 /* AuthCoordinator.swift */,
 				EB6D935329FEB859008AAAC8 /* GalleryCoordinator.swift */,
+				EB6D938529FF11C6008AAAC8 /* DetailsCoordinator.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -372,8 +387,8 @@
 		EB6D934C29FEB74A008AAAC8 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				EB6D934829FEB72E008AAAC8 /* GalleryViewModel.swift */,
 				EB6D934A29FEB746008AAAC8 /* GalleryViewOutput.swift */,
+				EB6D934829FEB72E008AAAC8 /* GalleryViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -381,7 +396,6 @@
 		EB6D934D29FEB754008AAAC8 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				EB6D92E429FDC93A008AAAC8 /* ImageCollectionViewCell.swift */,
 				EB6D92E629FDC963008AAAC8 /* GalleryViewController.swift */,
 			);
 			path = View;
@@ -431,6 +445,58 @@
 				EB6D936F29FEEB23008AAAC8 /* ImageModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		EB6D937529FF06C2008AAAC8 /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				EB6D937E29FF0CC0008AAAC8 /* Assembly */,
+				EB6D937D29FF0CB8008AAAC8 /* View */,
+				EB6D937C29FF0CB2008AAAC8 /* ViewModel */,
+			);
+			path = Details;
+			sourceTree = "<group>";
+		};
+		EB6D937C29FF0CB2008AAAC8 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				EB6D937A29FF0CAB008AAAC8 /* DetailsViewOutput.swift */,
+				EB6D937829FF0C9D008AAAC8 /* DetailsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		EB6D937D29FF0CB8008AAAC8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EB6D937629FF0C90008AAAC8 /* DetailsViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		EB6D937E29FF0CC0008AAAC8 /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				EB6D938129FF1197008AAAC8 /* DetailsAssembly.swift */,
+				EB6D938329FF11A4008AAAC8 /* DetailsAssemblyImpl.swift */,
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
+		EB6D937F29FF0D54008AAAC8 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				EB6D938029FF0D65008AAAC8 /* Cells */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		EB6D938029FF0D65008AAAC8 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				EB6D92E429FDC93A008AAAC8 /* ImageCollectionViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -554,11 +620,15 @@
 				EB6D936429FEE24B008AAAC8 /* ImageFetchServiceImpl.swift in Sources */,
 				EB6D931229FDE279008AAAC8 /* ServiceAssemblyImpl.swift in Sources */,
 				EB6D930129FDE0EC008AAAC8 /* RootCoordinatorImpl.swift in Sources */,
+				EB6D938429FF11A4008AAAC8 /* DetailsAssemblyImpl.swift in Sources */,
 				EB6D934929FEB72E008AAAC8 /* GalleryViewModel.swift in Sources */,
 				EB6D931029FDE26C008AAAC8 /* ServiceAssembly.swift in Sources */,
+				EB6D938229FF1197008AAAC8 /* DetailsAssembly.swift in Sources */,
+				EB6D937B29FF0CAB008AAAC8 /* DetailsViewOutput.swift in Sources */,
 				EB6D932429FDE710008AAAC8 /* AuthCoordinator.swift in Sources */,
 				EB6D935229FEB812008AAAC8 /* GalleryAssemblyImpl.swift in Sources */,
 				EB6D931629FDE387008AAAC8 /* MainViewOutput.swift in Sources */,
+				EB6D937729FF0C90008AAAC8 /* DetailsViewController.swift in Sources */,
 				EB6D935029FEB804008AAAC8 /* GalleryAssembly.swift in Sources */,
 				EB6D932F29FE9A2D008AAAC8 /* AuthService.swift in Sources */,
 				EB6D92EE29FDC9C5008AAAC8 /* Reusable.swift in Sources */,
@@ -573,7 +643,9 @@
 				EB6D92F029FDC9CF008AAAC8 /* Configurable.swift in Sources */,
 				EB6D92F429FDCDA1008AAAC8 /* AuthViewController.swift in Sources */,
 				EB6D931429FDE35D008AAAC8 /* MainViewModel.swift in Sources */,
+				EB6D938629FF11C7008AAAC8 /* DetailsCoordinator.swift in Sources */,
 				EB6D92BA29FDA39B008AAAC8 /* MainViewController.swift in Sources */,
+				EB6D937929FF0C9D008AAAC8 /* DetailsViewModel.swift in Sources */,
 				EB6D92B629FDA39B008AAAC8 /* AppDelegate.swift in Sources */,
 				EB6D935429FEB859008AAAC8 /* GalleryCoordinator.swift in Sources */,
 				EB6D931F29FDE58E008AAAC8 /* AuthAssembly.swift in Sources */,

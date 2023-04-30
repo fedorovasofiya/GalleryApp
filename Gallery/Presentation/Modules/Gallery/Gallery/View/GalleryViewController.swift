@@ -12,8 +12,8 @@ final class GalleryViewController: UIViewController {
     
     private lazy var collectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.minimumLineSpacing = 3
-        flowLayout.minimumInteritemSpacing = 2
+        flowLayout.minimumLineSpacing = Constants.lineSpacing
+        flowLayout.minimumInteritemSpacing = Constants.interitemSpacing
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         return collectionView
     }()

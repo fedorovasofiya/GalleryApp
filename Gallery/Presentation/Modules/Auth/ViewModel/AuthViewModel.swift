@@ -42,7 +42,7 @@ final class AuthViewModel: AuthViewOutput {
                     switch error {
                     case .accessDenied:
                         decisionHandler(.cancel)
-                        coordinator?.close()
+                        coordinator?.closeAuth()
                         // FIXME: обработка ошибок
                     default:
                         decisionHandler(.allow)

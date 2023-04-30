@@ -10,5 +10,5 @@ import UIKit
 
 protocol AuthCoordinator: RootCoordinator {
     func successfullyAuthorized()
-    func close()
+    func closeAuth()
 }

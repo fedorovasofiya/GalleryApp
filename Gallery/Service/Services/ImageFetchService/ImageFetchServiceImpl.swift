@@ -77,7 +77,6 @@ final class ImageFetchServiceImpl: ImageFetchService {
         guard let url = urlComponents.url else {
             return nil
         }
-        print(url)
         return URLRequest(url: url)
     }
     

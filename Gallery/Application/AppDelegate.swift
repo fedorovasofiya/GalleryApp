@@ -22,7 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let serviceAssembly = ServiceAssemblyImpl(coreAssembly: coreAssembly)
         coordinator = RootCoordinatorImpl(
             authAssembly: AuthAssemblyImpl(serviceAssembly: serviceAssembly),
-            galleryAssembly: GalleryAssemblyImpl(serviceAssembly: serviceAssembly)
+            galleryAssembly: GalleryAssemblyImpl(serviceAssembly: serviceAssembly),
+            detailsAssembly: DetailsAssemblyImpl(serviceAssembly: serviceAssembly)
         )
         coordinator?.start(in: window)
         

@@ -45,7 +45,7 @@ final class GalleryViewModel: GalleryViewOutput {
     
     func didSelectItem(at index: Int) {
         guard data.indices.contains(index) else { return }
-        coordinator?.openDetails()
+        coordinator?.openDetailsScreen(for: index, data: data)
     }
     
     func didTapExit() {
@@ -58,10 +58,8 @@ final class GalleryViewModel: GalleryViewOutput {
              switch completion {
              case .failure(let error):
                  self.dataLoadResultPublisher?.send(.failure(error))
-                 
              case .success(let data):
                  self.data = data
-                 print(data)
                  self.dataLoadResultPublisher?.send(.success(()))
              }
          }

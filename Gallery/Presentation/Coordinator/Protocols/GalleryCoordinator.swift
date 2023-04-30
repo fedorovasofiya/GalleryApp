@@ -10,5 +10,5 @@ import Foundation
 protocol GalleryCoordinator: RootCoordinator {
     func openAuthScreen()
     func openGalleryScreen()
-    func openDetails()
+    func openDetailsScreen(for indexPhoto: Int, data: [ImageModel])
 }
