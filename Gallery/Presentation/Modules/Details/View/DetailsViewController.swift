@@ -11,6 +11,7 @@ import Combine
 final class DetailsViewController: UIViewController {
     
     private lazy var imageView: UIImageView = UIImageView()
+    private lazy var scrollView: UIScrollView = UIScrollView()
     private lazy var collectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.minimumLineSpacing = Constants.lineSpacing
@@ -38,6 +39,7 @@ final class DetailsViewController: UIViewController {
         view.backgroundColor = .systemBackground
 
         configureButtons()
+        setupScrollView()
         setupImageView()
         setupCollectionView()
         bindViewModel()
@@ -69,19 +71,34 @@ final class DetailsViewController: UIViewController {
         )
     }
     
+    private func setupScrollView() {
+        scrollView.minimumZoomScale = 1.0
+        scrollView.maximumZoomScale = 10.0
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(scrollView)
+        
+        NSLayoutConstraint.activate([
+            scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: Constants.bottomInset * 2 - Constants.itemSize),
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+        ])
+        scrollView.delegate = self
+    }
+    
     private func setupImageView() {
         imageView.image = UIImage(systemName: "photo")
         imageView.tintColor = .secondarySystemBackground
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(imageView)
+        scrollView.addSubview(imageView)
         
         NSLayoutConstraint.activate([
-            imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            imageView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            imageView.widthAnchor.constraint(equalTo: view.widthAnchor),
-            imageView.heightAnchor.constraint(equalTo: view.widthAnchor)
+            imageView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+            imageView.centerYAnchor.constraint(equalTo: scrollView.centerYAnchor),
+            imageView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+            imageView.heightAnchor.constraint(equalTo: scrollView.widthAnchor)
         ])
     }
     
@@ -171,6 +188,15 @@ extension DetailsViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let cellSide = Constants.itemSize
         return CGSize(width: cellSide, height: cellSide)
+    }
+}
+
+// MARK: - UIScrollViewDelegate
+
+extension DetailsViewController: UIScrollViewDelegate {
+    
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        return imageView
     }
 }
 
