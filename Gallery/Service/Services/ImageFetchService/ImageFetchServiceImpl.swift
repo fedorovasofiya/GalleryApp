@@ -51,7 +51,7 @@ final class ImageFetchServiceImpl: ImageFetchService {
     
     private func mapData(models: [Item]) -> [ImageModel] {
         return models.compactMap { model in
-            let date = model.date
+            let date = Date(timeIntervalSince1970: TimeInterval(model.date))
             guard let urlString = model.sizes.first(where: { $0.type == "z" })?.url,
                   let url = URL(string: urlString) else {
                 return nil

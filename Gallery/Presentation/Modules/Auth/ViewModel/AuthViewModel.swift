@@ -11,7 +11,7 @@ import WebKit
 
 final class AuthViewModel: AuthViewOutput {
     
-    var requestPublisher: PassthroughSubject<URLRequest, Never>? = PassthroughSubject()
+    lazy var requestPublisher: PassthroughSubject<URLRequest, Never>? = PassthroughSubject()
     
     private let authService: AuthService
     private weak var coordinator: AuthCoordinator?

@@ -20,6 +20,7 @@ final class DetailsViewController: UIViewController {
     }()
     
     private let viewModel: DetailsViewOutput
+    private var imageSubscription: Cancellable?
     
     init(viewModel: DetailsViewOutput) {
         self.viewModel = viewModel
@@ -35,12 +36,17 @@ final class DetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        navigationItem.title = "MobileUp Gallery"
 
         configureButtons()
         setupImageView()
         setupCollectionView()
+        bindViewModel()
         viewModel.viewDidLoad()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        imageSubscription?.cancel()
     }
     
     // MARK: - UI Setup
@@ -105,6 +111,18 @@ final class DetailsViewController: UIViewController {
     @objc private func didTapShare() {
 
     }
+    
+    // MARK: - Combine
+    
+    private func bindViewModel() {
+        imageSubscription = viewModel.imagePublisher?
+            .subscribe(on: DispatchQueue.global(qos: .userInitiated))
+            .receive(on: DispatchQueue.main)
+            .sink(receiveValue: { model in
+                self.navigationItem.title = model.date
+                self.imageView.image = model.image
+            })
+    }
 
 }
 
@@ -120,22 +138,22 @@ extension DetailsViewController: UICollectionViewDataSource {
                 as? ImageCollectionViewCell else {
             return UICollectionViewCell()
         }
-//        self.viewModel.getImageData(index: indexPath.row) { completion in
-//            DispatchQueue.main.async {
-//                switch completion {
-//                case .failure:
-//                    break
-//                case .success(let data):
-//                    guard let image = UIImage(data: data) else { return }
-//                    cell.configure(with: image)
-//                }
-//            }
-//        }
+        self.viewModel.getImageData(index: indexPath.row) { completion in
+            DispatchQueue.main.async {
+                switch completion {
+                case .failure:
+                    break
+                case .success(let data):
+                    guard let image = UIImage(data: data) else { return }
+                    cell.configure(with: image)
+                }
+            }
+        }
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 30
+        return viewModel.getCount()
     }
 }
 
@@ -143,8 +161,7 @@ extension DetailsViewController: UICollectionViewDataSource {
 
 extension DetailsViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        viewModel.didSelectItem(at: indexPath.row)
-//        self.dismiss(animated: true)
+        viewModel.didSelectItem(at: indexPath.row)
     }
 }
 

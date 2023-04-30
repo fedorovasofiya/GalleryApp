@@ -9,5 +9,5 @@ import Foundation
 import UIKit
 
 protocol DetailsAssembly {
-    func makeDetailsModule(data: [ImageModel], currentIndex: Int, coordinator: DetailsCoordinator) -> UIViewController
+    func makeDetailsModule(data: [ImageModel], selectedIndex: Int, coordinator: DetailsCoordinator) -> UIViewController
 }

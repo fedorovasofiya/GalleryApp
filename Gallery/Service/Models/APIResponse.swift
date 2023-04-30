@@ -18,7 +18,7 @@ struct Response: Decodable {
 
 struct Item: Decodable {
     let id: Int
-    let date: Date
+    let date: Int
     let sizes: [Size]
 }
 

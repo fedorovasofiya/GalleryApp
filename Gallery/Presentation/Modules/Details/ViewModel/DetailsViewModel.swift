@@ -6,17 +6,21 @@
 //
 
 import Foundation
+import Combine
+import UIKit
 
 final class DetailsViewModel: DetailsViewOutput {
     
+    lazy var imagePublisher: PassthroughSubject<DisplayingImage, Never>? = PassthroughSubject()
+    
     private var data: [ImageModel]
-    private var currentIndex: Int
+    private var selectedIndex: Int
     private let imageFetchService: ImageFetchService
     private weak var coordinator: DetailsCoordinator?
     
-    init(data: [ImageModel], currentIndex: Int, imageFetchService: ImageFetchService, coordinator: DetailsCoordinator?) {
+    init(data: [ImageModel], selectedIndex: Int, imageFetchService: ImageFetchService, coordinator: DetailsCoordinator?) {
         self.data = data
-        self.currentIndex = currentIndex
+        self.selectedIndex = selectedIndex
         self.imageFetchService = imageFetchService
         self.coordinator = coordinator
     }
@@ -34,11 +38,34 @@ final class DetailsViewModel: DetailsViewOutput {
     }
     
     func viewDidLoad() {
-        
+        loadImageData(for: selectedIndex)
     }
     
     func didTapBack() {
         coordinator?.closeDetails()
     }
     
+    func didSelectItem(at index: Int) {
+        loadImageData(for: index)
+    }
+    
+    private func loadImageData(for index: Int) {
+        guard data.indices.contains(index) else { return }
+        imageFetchService.loadImageData(from: data[index].url) { result in
+            switch result {
+            case .success(let imageData):
+                let model = self.makeDisplayingImageModel(data: imageData, date: self.data[index].date)
+                self.imagePublisher?.send(model)
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+                                          
+    private func makeDisplayingImageModel(data: Data, date: Date) -> DisplayingImage {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "d MMMM yyyy"
+        let dateString = formatter.string(from: date)
+        return DisplayingImage(date: dateString, image: UIImage(data: data))
+    }
 }

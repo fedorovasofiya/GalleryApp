@@ -12,7 +12,7 @@ final class GalleryViewModel: GalleryViewOutput {
     
     // MARK: - Public Properties
     
-    var dataLoadResultPublisher: PassthroughSubject<Result<Void, Error>, Never>? = PassthroughSubject()
+    lazy var dataLoadResultPublisher: PassthroughSubject<Result<Void, Error>, Never>? = PassthroughSubject()
     
     // MARK: - Private Properties
     

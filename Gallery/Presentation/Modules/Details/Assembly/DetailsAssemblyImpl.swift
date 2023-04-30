@@ -16,10 +16,10 @@ final class DetailsAssemblyImpl: DetailsAssembly {
         self.serviceAssembly = serviceAssembly
     }
     
-    func makeDetailsModule(data: [ImageModel], currentIndex: Int, coordinator: DetailsCoordinator) -> UIViewController {
+    func makeDetailsModule(data: [ImageModel], selectedIndex: Int, coordinator: DetailsCoordinator) -> UIViewController {
         let detailsViewModel = DetailsViewModel(
             data: data,
-            currentIndex: currentIndex,
+            selectedIndex: selectedIndex,
             imageFetchService: serviceAssembly.makeImageFetchService(),
             coordinator: coordinator
         )

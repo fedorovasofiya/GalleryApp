@@ -43,7 +43,7 @@ final class RootCoordinatorImpl: RootCoordinator {
     }
     
     func openDetails(for indexPhoto: Int, data: [ImageModel]) {
-        let detailsViewController = detailsAssembly.makeDetailsModule(data: data, currentIndex: indexPhoto, coordinator: self)
+        let detailsViewController = detailsAssembly.makeDetailsModule(data: data, selectedIndex: indexPhoto, coordinator: self)
         (window?.rootViewController as? UINavigationController)?.pushViewController(detailsViewController, animated: true)
     }
 
