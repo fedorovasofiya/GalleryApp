@@ -44,6 +44,8 @@
 		EB6D935029FEB804008AAAC8 /* GalleryAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6D934F29FEB804008AAAC8 /* GalleryAssembly.swift */; };
 		EB6D935229FEB812008AAAC8 /* GalleryAssemblyImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6D935129FEB812008AAAC8 /* GalleryAssemblyImpl.swift */; };
 		EB6D935429FEB859008AAAC8 /* GalleryCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6D935329FEB859008AAAC8 /* GalleryCoordinator.swift */; };
+		EB6D935D29FEE170008AAAC8 /* VkAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6D935C29FEE170008AAAC8 /* VkAPIService.swift */; };
+		EB6D935F29FEE181008AAAC8 /* VkAPIServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6D935E29FEE181008AAAC8 /* VkAPIServiceImpl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -87,6 +89,8 @@
 		EB6D934F29FEB804008AAAC8 /* GalleryAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryAssembly.swift; sourceTree = "<group>"; };
 		EB6D935129FEB812008AAAC8 /* GalleryAssemblyImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryAssemblyImpl.swift; sourceTree = "<group>"; };
 		EB6D935329FEB859008AAAC8 /* GalleryCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCoordinator.swift; sourceTree = "<group>"; };
+		EB6D935C29FEE170008AAAC8 /* VkAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VkAPIService.swift; sourceTree = "<group>"; };
+		EB6D935E29FEE181008AAAC8 /* VkAPIServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VkAPIServiceImpl.swift; sourceTree = "<group>"; };
 		EEACD74A07E757E0BD130B5B /* Pods-Gallery.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gallery.debug.xcconfig"; path = "Target Support Files/Pods-Gallery/Pods-Gallery.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -236,6 +240,7 @@
 		EB6D92FD29FDE099008AAAC8 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				EB6D935B29FEE15E008AAAC8 /* VkAPIService */,
 				EB6D933229FE9FF6008AAAC8 /* AuthService */,
 			);
 			path = Services;
@@ -405,6 +410,15 @@
 			path = Gallery;
 			sourceTree = "<group>";
 		};
+		EB6D935B29FEE15E008AAAC8 /* VkAPIService */ = {
+			isa = PBXGroup;
+			children = (
+				EB6D935C29FEE170008AAAC8 /* VkAPIService.swift */,
+				EB6D935E29FEE181008AAAC8 /* VkAPIServiceImpl.swift */,
+			);
+			path = VkAPIService;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -542,6 +556,7 @@
 				EB6D931D29FDE55E008AAAC8 /* AuthViewOutput.swift in Sources */,
 				EB6D92E729FDC963008AAAC8 /* GalleryViewController.swift in Sources */,
 				EB6D92F029FDC9CF008AAAC8 /* Configurable.swift in Sources */,
+				EB6D935D29FEE170008AAAC8 /* VkAPIService.swift in Sources */,
 				EB6D92F429FDCDA1008AAAC8 /* AuthViewController.swift in Sources */,
 				EB6D931429FDE35D008AAAC8 /* MainViewModel.swift in Sources */,
 				EB6D92BA29FDA39B008AAAC8 /* MainViewController.swift in Sources */,
@@ -550,6 +565,7 @@
 				EB6D935429FEB859008AAAC8 /* GalleryCoordinator.swift in Sources */,
 				EB6D931F29FDE58E008AAAC8 /* AuthAssembly.swift in Sources */,
 				EB6D934129FEAC0E008AAAC8 /* CoreAssembly.swift in Sources */,
+				EB6D935F29FEE181008AAAC8 /* VkAPIServiceImpl.swift in Sources */,
 				EB6D932B29FDEA43008AAAC8 /* AuthAsssemblyImpl.swift in Sources */,
 				EB6D92EC29FDC9B1008AAAC8 /* UICollectionViewCell+Extensions.swift in Sources */,
 				EB6D92F729FDCF69008AAAC8 /* AuthViewModel.swift in Sources */,
