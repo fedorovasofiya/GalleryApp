@@ -16,6 +16,8 @@ final class GalleryViewController: UIViewController {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         return collectionView
     }()
+    
+    // MARK: - Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +26,8 @@ final class GalleryViewController: UIViewController {
 
         setupCollectionView()
     }
+    
+    // MARK: - UI Setup
     
     private func setupCollectionView() {
         collectionView.backgroundColor = .systemBackground

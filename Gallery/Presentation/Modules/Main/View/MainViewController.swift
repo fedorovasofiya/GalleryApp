@@ -12,8 +12,19 @@ final class MainViewController: UIViewController {
     private lazy var titleLabel = UILabel()
     private lazy var enterButton = UIButton()
     
+    private let viewModel: MainViewOutput
+    
     // MARK: - Life Cycle
-
+    
+    init(viewModel: MainViewOutput) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
@@ -59,7 +70,7 @@ final class MainViewController: UIViewController {
     // MARK: - Actions
     
     @objc private func didTapEnter() {
-        navigationController?.pushViewController(GalleryViewController(), animated: true)
+        viewModel.didTapEnter()
     }
 
 }
