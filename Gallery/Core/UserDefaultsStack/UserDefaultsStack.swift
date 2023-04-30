@@ -9,5 +9,6 @@ import Foundation
 
 protocol UserDefaultsStack {
     func setKey<T>(value: T, keyName: String)
-    func getKey<T>(keyName: String, dataType: T.Type) -> T? 
+    func getKey<T>(keyName: String, dataType: T.Type) -> T?
+    func removeKey(keyName: String)
 }

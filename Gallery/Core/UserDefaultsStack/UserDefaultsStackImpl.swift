@@ -21,4 +21,8 @@ final class UserDefaultsStackImpl: UserDefaultsStack {
         userDefaults.object(forKey: keyName) as? T
     }
     
+    func removeKey(keyName: String) {
+        userDefaults.removeObject(forKey: keyName)
+    }
+    
 }

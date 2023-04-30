@@ -18,7 +18,7 @@ extension AuthError: LocalizedError {
     var errorDescription: String? {
         switch self {
         case .incorrectURL:
-            return "Invalid URL"
+            return "Incorrect URL"
         case .accessDenied:
             return "Error: Access denied"
         case .noAccessToken:

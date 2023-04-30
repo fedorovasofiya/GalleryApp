@@ -9,8 +9,30 @@ import Foundation
 import WebKit
 import CryptoKit
 
-final class AuthServiceImpl: VkAPIServiceImpl, AuthService {
+final class AuthServiceImpl: AuthService {
     
+    var accessToken: String?
+    
+    // MARK: - Private Properties
+    
+    private struct Configuration {
+        static let authHost = "oauth.vk.com"
+        static let clientID = "51630245"
+        static let accessTokenParam = "access_token"
+        static let expiresInParam = "expires_in"
+    }
+    
+    private var expirationDate: Date?
+    private let userDefaultsStack: UserDefaultsStack
+    
+    // MARK: - Init
+    
+    init(userDefaultsStack: UserDefaultsStack) {
+        self.userDefaultsStack = userDefaultsStack
+        self.accessToken = getAccessToken()
+        self.expirationDate = getExpirationDate()
+    }
+
     // MARK: - Public Methods
     
     func getAuthDialogURLRequest() -> URLRequest? {
@@ -51,11 +73,25 @@ final class AuthServiceImpl: VkAPIServiceImpl, AuthService {
             WKWebsiteDataStore.default().removeData(ofTypes: data, modifiedSince: date, completionHandler: {})
         }
     }
+
+    func isTokenValid() -> Bool {
+        guard self.accessToken != nil,
+              let expirationDate = self.expirationDate else {
+            return false
+        }
+        let currentDate = Date()
+        return currentDate < expirationDate
+    }
     
+    func logOut() {
+        removeAccountData()
+    }
+
     // MARK: - Private Methods
     
     private func getQuery(url: URL?) throws -> String {
         guard let url = url,
+              url.path == "/blank.html",
               let query = url.fragment
         else {
             throw AuthError.incorrectURL
@@ -64,10 +100,6 @@ final class AuthServiceImpl: VkAPIServiceImpl, AuthService {
     }
     
     private func checkPath(in components: URLComponents) throws {
-        guard let url = components.url,
-              url.path == "/blank.html" else {
-            throw AuthError.incorrectURL
-        }
         let queryItems = components.queryItems
         if (queryItems?.first(where: { $0.name == "error" })?.value) != nil {
             throw AuthError.accessDenied
@@ -91,5 +123,28 @@ final class AuthServiceImpl: VkAPIServiceImpl, AuthService {
         }
         let expirationDate = Date().addingTimeInterval(TimeInterval(expiresIn))
         setExpirationDate(expirationDate: expirationDate)
+    }
+    
+    private func setAccessToken(accessToken: String) {
+        self.accessToken = accessToken
+        userDefaultsStack.setKey(value: accessToken, keyName: Configuration.accessTokenParam)
+    }
+    
+    private func setExpirationDate(expirationDate: Date) {
+        self.expirationDate = expirationDate
+        userDefaultsStack.setKey(value: expirationDate, keyName: Configuration.expiresInParam)
+    }
+    
+    private func getAccessToken() -> String? {
+        userDefaultsStack.getKey(keyName: Configuration.accessTokenParam, dataType: String.self)
+    }
+    
+    private func getExpirationDate() -> Date? {
+        userDefaultsStack.getKey(keyName: Configuration.expiresInParam, dataType: Date.self)
+    }
+    
+    private func removeAccountData() {
+        userDefaultsStack.removeKey(keyName: Configuration.accessTokenParam)
+        userDefaultsStack.removeKey(keyName: Configuration.expiresInParam)
     }
 }

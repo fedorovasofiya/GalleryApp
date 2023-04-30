@@ -14,4 +14,5 @@ protocol GalleryViewOutput {
     func getImageData(index: Int, completion: @escaping (Result<Data, Error>) -> Void)
     func viewDidLoad()
     func didSelectItem(at index: Int)
+    func didTapExit()
 }

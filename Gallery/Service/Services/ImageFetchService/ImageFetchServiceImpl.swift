@@ -7,15 +7,24 @@
 
 import Foundation
 
-final class ImageFetchServiceImpl: VkAPIServiceImpl, ImageFetchService {    
+final class ImageFetchServiceImpl: ImageFetchService {
     
     // MARK: - Private properties
     
+    // MARK: - Private Properties
+    
+    private struct Configuration {
+        static let apiHost = "api.vk.com"
+        static let albumID = "266310117"
+        static let ownerID = "-128666765"
+    }
+    
     private let networkStack: NetworkStack
+    private let userDefaultsStack: UserDefaultsStack
 
     init(networkStack: NetworkStack, userDefaultsStack: UserDefaultsStack) {
         self.networkStack = networkStack
-        super.init(userDefaultsStack: userDefaultsStack)
+        self.userDefaultsStack = userDefaultsStack
     }
     
     // MARK: - Public methods
@@ -29,7 +38,6 @@ final class ImageFetchServiceImpl: VkAPIServiceImpl, ImageFetchService {
                 let result = self.mapData(models: data)
                 completion(.success(result))
             case .failure(let error):
-                print(error)
                 completion(.failure(error))
             }
         }
@@ -39,12 +47,12 @@ final class ImageFetchServiceImpl: VkAPIServiceImpl, ImageFetchService {
         networkStack.loadData(from: url, completion: completion)
     }
     
-    // MARK: - Private methods
+    // MARK: - Private methods 689
     
     private func mapData(models: [Item]) -> [ImageModel] {
         return models.compactMap { model in
             let date = model.date
-            guard let urlString = model.sizes.first(where: { $0.type == "y" })?.url,
+            guard let urlString = model.sizes.first(where: { $0.type == "z" })?.url,
                   let url = URL(string: urlString) else {
                 return nil
             }
@@ -53,13 +61,15 @@ final class ImageFetchServiceImpl: VkAPIServiceImpl, ImageFetchService {
     }
     
     private func createPhotosRequest() -> URLRequest? {
+        guard let accessToken = getAccessToken() else {
+            return nil
+        }
         var urlComponents = URLComponents()
         urlComponents.scheme = "https"
         urlComponents.host = Configuration.apiHost
         urlComponents.path = "/method/photos.get"
-        print(accessToken)
         urlComponents.queryItems = [
-            URLQueryItem(name: "access_token", value: self.accessToken),
+            URLQueryItem(name: "access_token", value: accessToken),
             URLQueryItem(name: "owner_id", value: Configuration.ownerID),
             URLQueryItem(name: "album_id", value: Configuration.albumID),
             URLQueryItem(name: "v", value: "5.131")
@@ -69,6 +79,10 @@ final class ImageFetchServiceImpl: VkAPIServiceImpl, ImageFetchService {
         }
         print(url)
         return URLRequest(url: url)
+    }
+    
+    private func getAccessToken() -> String? {
+        userDefaultsStack.getKey(keyName: "access_token", dataType: String.self)
     }
 
 }

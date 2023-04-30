@@ -15,3 +15,14 @@ struct Response: Decodable {
     let count: Int
     let items: [Item]
 }
+
+struct Item: Decodable {
+    let id: Int
+    let date: Date
+    let sizes: [Size]
+}
+
+struct Size: Decodable {
+    let type: String
+    let url: String
+}

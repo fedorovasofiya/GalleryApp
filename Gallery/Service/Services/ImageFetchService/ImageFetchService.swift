@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol ImageFetchService: VkAPIService {
+protocol ImageFetchService {
     func fetchImages(completion: @escaping (Result<[ImageModel], Error>) -> Void)
     func loadImageData(from url: URL, completion: @escaping (Result<Data, Error>) -> Void)
 }

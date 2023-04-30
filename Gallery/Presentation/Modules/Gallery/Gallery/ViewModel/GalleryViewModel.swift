@@ -17,10 +17,12 @@ final class GalleryViewModel: GalleryViewOutput {
     // MARK: - Private Properties
     
     private var data: [ImageModel] = []
+    private let authService: AuthService
     private let imageFetchService: ImageFetchService
     private weak var coordinator: GalleryCoordinator?
     
-    init(imageFetchService: ImageFetchService, coordinator: GalleryCoordinator?) {
+    init(authService: AuthService, imageFetchService: ImageFetchService, coordinator: GalleryCoordinator?) {
+        self.authService = authService
         self.imageFetchService = imageFetchService
         self.coordinator = coordinator
     }
@@ -44,6 +46,11 @@ final class GalleryViewModel: GalleryViewOutput {
     func didSelectItem(at index: Int) {
         guard data.indices.contains(index) else { return }
         coordinator?.openDetails()
+    }
+    
+    func didTapExit() {
+        authService.logOut()
+        coordinator?.openGalleryScreen()
     }
     
     private func loadData() {

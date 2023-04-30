@@ -37,6 +37,7 @@ final class GalleryViewController: UIViewController {
         view.backgroundColor = .systemBackground
         navigationItem.title = "MobileUp Gallery"
 
+        configureButton()
         setupCollectionView()
         bindViewModel()
         viewModel.viewDidLoad()
@@ -48,6 +49,11 @@ final class GalleryViewController: UIViewController {
     }
     
     // MARK: - UI Setup
+    
+    private func configureButton() {
+        navigationController?.navigationBar.tintColor = .label
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Выход", style: .plain, target: self, action: #selector (didTapExit))
+    }
     
     private func setupCollectionView() {
         collectionView.backgroundColor = .systemBackground
@@ -64,6 +70,12 @@ final class GalleryViewController: UIViewController {
         collectionView.register(ImageCollectionViewCell.self, forCellWithReuseIdentifier: ImageCollectionViewCell.reuseIdentifier)
         collectionView.dataSource = self
         collectionView.delegate = self
+    }
+    
+    // MARK: - Actions
+    
+    @objc private func didTapExit() {
+        viewModel.didTapExit()
     }
     
     // MARK: - Combine
