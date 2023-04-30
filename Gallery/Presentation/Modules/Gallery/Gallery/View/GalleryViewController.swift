@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 final class GalleryViewController: UIViewController {
     
@@ -18,6 +19,7 @@ final class GalleryViewController: UIViewController {
     }()
     
     private let viewModel: GalleryViewOutput
+    private var dataLoadResultSubscription: Cancellable?
     
     init(viewModel: GalleryViewOutput) {
         self.viewModel = viewModel
@@ -36,6 +38,13 @@ final class GalleryViewController: UIViewController {
         navigationItem.title = "MobileUp Gallery"
 
         setupCollectionView()
+        bindViewModel()
+        viewModel.viewDidLoad()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        dataLoadResultSubscription?.cancel()
     }
     
     // MARK: - UI Setup
@@ -56,6 +65,22 @@ final class GalleryViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
     }
+    
+    // MARK: - Combine
+    
+    private func bindViewModel() {
+        dataLoadResultSubscription = viewModel.dataLoadResultPublisher?
+            .receive(on: DispatchQueue.main)
+            .subscribe(on: DispatchQueue.global(qos: .userInitiated))
+            .sink(receiveValue: { result in
+                switch result {
+                case .success:
+                    self.collectionView.reloadData()
+                case .failure(let error):
+                    print(error)
+                }
+            })
+    }
 
 }
 
@@ -71,12 +96,22 @@ extension GalleryViewController: UICollectionViewDataSource {
                 as? ImageCollectionViewCell else {
             return UICollectionViewCell()
         }
+        self.viewModel.getImageData(index: indexPath.row) { completion in
+            DispatchQueue.main.async {
+                switch completion {
+                case .failure:
+                    break
+                case .success(let data):
+                    guard let image = UIImage(data: data) else { return }
+                    cell.configure(with: image)
+                }
+            }
+        }
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // FIXME: viewModel.getCount()
-        return 10
+        return viewModel.getCount()
     }
 }
 
@@ -84,7 +119,7 @@ extension GalleryViewController: UICollectionViewDataSource {
 
 extension GalleryViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        viewModel.didSelectItem(at: indexPath.row)
+        viewModel.didSelectItem(at: indexPath.row)
         self.dismiss(animated: true)
     }
 }

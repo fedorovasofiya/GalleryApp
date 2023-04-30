@@ -11,23 +11,27 @@ class VkAPIServiceImpl {
     
     // MARK: - Public Properties
     
+    var accessToken: String?
+    var expirationDate: Date?
+    
     struct Configuration {
-        static let host = "oauth.vk.com"
+        static let authHost = "oauth.vk.com"
+        static let apiHost = "api.vk.com"
         static let clientID = "51630245"
         static let accessTokenParam = "access_token"
         static let expiresInParam = "expires_in"
+        static let albumID = "266310117"
+        static let ownerID = "-128666765"
     }
     
     // MARK: - Private Properties
     
-    private var accessToken: String?
-    private var expirationDate: Date?
     private let userDefaultsStack: UserDefaultsStack
     
     init(userDefaultsStack: UserDefaultsStack) {
         self.userDefaultsStack = userDefaultsStack
-        self.accessToken = readAccessToken()
-        self.expirationDate = readExpirationDate()
+        self.accessToken = getAccessToken()
+        self.expirationDate = getExpirationDate()
     }
     
     // MARK: - Public Methods
@@ -44,11 +48,11 @@ class VkAPIServiceImpl {
     
     // MARK: - Private Methods
     
-    private func readAccessToken() -> String? {
+    private func getAccessToken() -> String? {
         userDefaultsStack.getKey(keyName: Configuration.accessTokenParam, dataType: String.self)
     }
     
-    private func readExpirationDate() -> Date? {
+    private func getExpirationDate() -> Date? {
         userDefaultsStack.getKey(keyName: Configuration.expiresInParam, dataType: Date.self)
     }
     
@@ -66,9 +70,5 @@ extension VkAPIServiceImpl: VkAPIService {
         let currentDate = Date()
         return currentDate < expirationDate
     }
-    
-    func getAccessToken() -> String? {
-        self.accessToken
-    }
-    
+
 }

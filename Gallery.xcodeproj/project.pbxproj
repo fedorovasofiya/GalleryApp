@@ -31,14 +31,11 @@
 		EB6D932B29FDEA43008AAAC8 /* AuthAsssemblyImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6D932A29FDEA43008AAAC8 /* AuthAsssemblyImpl.swift */; };
 		EB6D932F29FE9A2D008AAAC8 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6D932E29FE9A2D008AAAC8 /* AuthService.swift */; };
 		EB6D933129FE9A47008AAAC8 /* AuthServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6D933029FE9A47008AAAC8 /* AuthServiceImpl.swift */; };
-		EB6D933729FEA7C6008AAAC8 /* CryptoKitStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6D933629FEA7C6008AAAC8 /* CryptoKitStack.swift */; };
-		EB6D933929FEA7D2008AAAC8 /* CryptoKitStackImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6D933829FEA7D2008AAAC8 /* CryptoKitStackImpl.swift */; };
 		EB6D933C29FEAB9E008AAAC8 /* UserDefaultsStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6D933B29FEAB9E008AAAC8 /* UserDefaultsStack.swift */; };
 		EB6D933E29FEABB0008AAAC8 /* UserDefaultsStackImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6D933D29FEABB0008AAAC8 /* UserDefaultsStackImpl.swift */; };
 		EB6D934129FEAC0E008AAAC8 /* CoreAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6D934029FEAC0E008AAAC8 /* CoreAssembly.swift */; };
 		EB6D934329FEAC19008AAAC8 /* CoreAssemblyImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6D934229FEAC19008AAAC8 /* CoreAssemblyImpl.swift */; };
 		EB6D934529FEB350008AAAC8 /* AuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6D934429FEB350008AAAC8 /* AuthError.swift */; };
-		EB6D934729FEB380008AAAC8 /* CryptoKitError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6D934629FEB380008AAAC8 /* CryptoKitError.swift */; };
 		EB6D934929FEB72E008AAAC8 /* GalleryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6D934829FEB72E008AAAC8 /* GalleryViewModel.swift */; };
 		EB6D934B29FEB746008AAAC8 /* GalleryViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6D934A29FEB746008AAAC8 /* GalleryViewOutput.swift */; };
 		EB6D935029FEB804008AAAC8 /* GalleryAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6D934F29FEB804008AAAC8 /* GalleryAssembly.swift */; };
@@ -46,6 +43,15 @@
 		EB6D935429FEB859008AAAC8 /* GalleryCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6D935329FEB859008AAAC8 /* GalleryCoordinator.swift */; };
 		EB6D935D29FEE170008AAAC8 /* VkAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6D935C29FEE170008AAAC8 /* VkAPIService.swift */; };
 		EB6D935F29FEE181008AAAC8 /* VkAPIServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6D935E29FEE181008AAAC8 /* VkAPIServiceImpl.swift */; };
+		EB6D936129FEE232008AAAC8 /* ImageFetchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6D936029FEE232008AAAC8 /* ImageFetchService.swift */; };
+		EB6D936429FEE24B008AAAC8 /* ImageFetchServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6D936329FEE24B008AAAC8 /* ImageFetchServiceImpl.swift */; };
+		EB6D936629FEE3C1008AAAC8 /* NetworkStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6D936529FEE3C1008AAAC8 /* NetworkStack.swift */; };
+		EB6D936829FEE3CC008AAAC8 /* NetworkStackImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6D936729FEE3CC008AAAC8 /* NetworkStackImpl.swift */; };
+		EB6D936A29FEE3D9008AAAC8 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6D936929FEE3D9008AAAC8 /* NetworkError.swift */; };
+		EB6D936E29FEE715008AAAC8 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6D936D29FEE715008AAAC8 /* Item.swift */; };
+		EB6D937029FEEB24008AAAC8 /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6D936F29FEEB23008AAAC8 /* ImageModel.swift */; };
+		EB6D937229FEF153008AAAC8 /* Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6D937129FEF153008AAAC8 /* Size.swift */; };
+		EB6D937429FEF6BE008AAAC8 /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6D937329FEF6BE008AAAC8 /* APIResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,14 +82,11 @@
 		EB6D932A29FDEA43008AAAC8 /* AuthAsssemblyImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAsssemblyImpl.swift; sourceTree = "<group>"; };
 		EB6D932E29FE9A2D008AAAC8 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		EB6D933029FE9A47008AAAC8 /* AuthServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServiceImpl.swift; sourceTree = "<group>"; };
-		EB6D933629FEA7C6008AAAC8 /* CryptoKitStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoKitStack.swift; sourceTree = "<group>"; };
-		EB6D933829FEA7D2008AAAC8 /* CryptoKitStackImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoKitStackImpl.swift; sourceTree = "<group>"; };
 		EB6D933B29FEAB9E008AAAC8 /* UserDefaultsStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsStack.swift; sourceTree = "<group>"; };
 		EB6D933D29FEABB0008AAAC8 /* UserDefaultsStackImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsStackImpl.swift; sourceTree = "<group>"; };
 		EB6D934029FEAC0E008AAAC8 /* CoreAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreAssembly.swift; sourceTree = "<group>"; };
 		EB6D934229FEAC19008AAAC8 /* CoreAssemblyImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreAssemblyImpl.swift; sourceTree = "<group>"; };
 		EB6D934429FEB350008AAAC8 /* AuthError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthError.swift; sourceTree = "<group>"; };
-		EB6D934629FEB380008AAAC8 /* CryptoKitError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoKitError.swift; sourceTree = "<group>"; };
 		EB6D934829FEB72E008AAAC8 /* GalleryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewModel.swift; sourceTree = "<group>"; };
 		EB6D934A29FEB746008AAAC8 /* GalleryViewOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewOutput.swift; sourceTree = "<group>"; };
 		EB6D934F29FEB804008AAAC8 /* GalleryAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryAssembly.swift; sourceTree = "<group>"; };
@@ -91,6 +94,15 @@
 		EB6D935329FEB859008AAAC8 /* GalleryCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCoordinator.swift; sourceTree = "<group>"; };
 		EB6D935C29FEE170008AAAC8 /* VkAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VkAPIService.swift; sourceTree = "<group>"; };
 		EB6D935E29FEE181008AAAC8 /* VkAPIServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VkAPIServiceImpl.swift; sourceTree = "<group>"; };
+		EB6D936029FEE232008AAAC8 /* ImageFetchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFetchService.swift; sourceTree = "<group>"; };
+		EB6D936329FEE24B008AAAC8 /* ImageFetchServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFetchServiceImpl.swift; sourceTree = "<group>"; };
+		EB6D936529FEE3C1008AAAC8 /* NetworkStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkStack.swift; sourceTree = "<group>"; };
+		EB6D936729FEE3CC008AAAC8 /* NetworkStackImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkStackImpl.swift; sourceTree = "<group>"; };
+		EB6D936929FEE3D9008AAAC8 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		EB6D936D29FEE715008AAAC8 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		EB6D936F29FEEB23008AAAC8 /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
+		EB6D937129FEF153008AAAC8 /* Size.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Size.swift; sourceTree = "<group>"; };
+		EB6D937329FEF6BE008AAAC8 /* APIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
 		EEACD74A07E757E0BD130B5B /* Pods-Gallery.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gallery.debug.xcconfig"; path = "Target Support Files/Pods-Gallery/Pods-Gallery.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -185,6 +197,7 @@
 			children = (
 				EB6D930E29FDE255008AAAC8 /* ServiceAssembly */,
 				EB6D92FD29FDE099008AAAC8 /* Services */,
+				EB6D936C29FEE6FF008AAAC8 /* Models */,
 				EB6D92EA29FDC99E008AAAC8 /* Protocols */,
 				EB6D92E929FDC998008AAAC8 /* Extensions */,
 			);
@@ -242,6 +255,7 @@
 			children = (
 				EB6D935B29FEE15E008AAAC8 /* VkAPIService */,
 				EB6D933229FE9FF6008AAAC8 /* AuthService */,
+				EB6D936229FEE237008AAAC8 /* ImageFetchService */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -341,19 +355,9 @@
 			children = (
 				EB6D933F29FEABF4008AAAC8 /* CoreAssembly */,
 				EB6D933A29FEAB7E008AAAC8 /* UserDefaultsStack */,
-				EB6D933529FEA7A1008AAAC8 /* CryptoKitStack */,
+				EB6D936B29FEE3E2008AAAC8 /* NetworkStack */,
 			);
 			path = Core;
-			sourceTree = "<group>";
-		};
-		EB6D933529FEA7A1008AAAC8 /* CryptoKitStack */ = {
-			isa = PBXGroup;
-			children = (
-				EB6D933629FEA7C6008AAAC8 /* CryptoKitStack.swift */,
-				EB6D933829FEA7D2008AAAC8 /* CryptoKitStackImpl.swift */,
-				EB6D934629FEB380008AAAC8 /* CryptoKitError.swift */,
-			);
-			path = CryptoKitStack;
 			sourceTree = "<group>";
 		};
 		EB6D933A29FEAB7E008AAAC8 /* UserDefaultsStack */ = {
@@ -417,6 +421,36 @@
 				EB6D935E29FEE181008AAAC8 /* VkAPIServiceImpl.swift */,
 			);
 			path = VkAPIService;
+			sourceTree = "<group>";
+		};
+		EB6D936229FEE237008AAAC8 /* ImageFetchService */ = {
+			isa = PBXGroup;
+			children = (
+				EB6D936029FEE232008AAAC8 /* ImageFetchService.swift */,
+				EB6D936329FEE24B008AAAC8 /* ImageFetchServiceImpl.swift */,
+			);
+			path = ImageFetchService;
+			sourceTree = "<group>";
+		};
+		EB6D936B29FEE3E2008AAAC8 /* NetworkStack */ = {
+			isa = PBXGroup;
+			children = (
+				EB6D936529FEE3C1008AAAC8 /* NetworkStack.swift */,
+				EB6D936729FEE3CC008AAAC8 /* NetworkStackImpl.swift */,
+				EB6D936929FEE3D9008AAAC8 /* NetworkError.swift */,
+			);
+			path = NetworkStack;
+			sourceTree = "<group>";
+		};
+		EB6D936C29FEE6FF008AAAC8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				EB6D937329FEF6BE008AAAC8 /* APIResponse.swift */,
+				EB6D936D29FEE715008AAAC8 /* Item.swift */,
+				EB6D937129FEF153008AAAC8 /* Size.swift */,
+				EB6D936F29FEEB23008AAAC8 /* ImageModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -534,9 +568,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB6D937229FEF153008AAAC8 /* Size.swift in Sources */,
 				EB6D934529FEB350008AAAC8 /* AuthError.swift in Sources */,
+				EB6D936629FEE3C1008AAAC8 /* NetworkStack.swift in Sources */,
 				EB6D934329FEAC19008AAAC8 /* CoreAssemblyImpl.swift in Sources */,
-				EB6D934729FEB380008AAAC8 /* CryptoKitError.swift in Sources */,
+				EB6D936429FEE24B008AAAC8 /* ImageFetchServiceImpl.swift in Sources */,
 				EB6D931229FDE279008AAAC8 /* ServiceAssemblyImpl.swift in Sources */,
 				EB6D930129FDE0EC008AAAC8 /* RootCoordinatorImpl.swift in Sources */,
 				EB6D934929FEB72E008AAAC8 /* GalleryViewModel.swift in Sources */,
@@ -545,14 +581,15 @@
 				EB6D935229FEB812008AAAC8 /* GalleryAssemblyImpl.swift in Sources */,
 				EB6D931629FDE387008AAAC8 /* MainViewOutput.swift in Sources */,
 				EB6D935029FEB804008AAAC8 /* GalleryAssembly.swift in Sources */,
-				EB6D933729FEA7C6008AAAC8 /* CryptoKitStack.swift in Sources */,
 				EB6D932F29FE9A2D008AAAC8 /* AuthService.swift in Sources */,
 				EB6D92EE29FDC9C5008AAAC8 /* Reusable.swift in Sources */,
 				EB6D930329FDE0FC008AAAC8 /* RootCoordinator.swift in Sources */,
 				EB6D92E529FDC93A008AAAC8 /* ImageCollectionViewCell.swift in Sources */,
 				EB6D933E29FEABB0008AAAC8 /* UserDefaultsStackImpl.swift in Sources */,
 				EB6D934B29FEB746008AAAC8 /* GalleryViewOutput.swift in Sources */,
+				EB6D936129FEE232008AAAC8 /* ImageFetchService.swift in Sources */,
 				EB6D933129FE9A47008AAAC8 /* AuthServiceImpl.swift in Sources */,
+				EB6D936E29FEE715008AAAC8 /* Item.swift in Sources */,
 				EB6D931D29FDE55E008AAAC8 /* AuthViewOutput.swift in Sources */,
 				EB6D92E729FDC963008AAAC8 /* GalleryViewController.swift in Sources */,
 				EB6D92F029FDC9CF008AAAC8 /* Configurable.swift in Sources */,
@@ -560,16 +597,19 @@
 				EB6D92F429FDCDA1008AAAC8 /* AuthViewController.swift in Sources */,
 				EB6D931429FDE35D008AAAC8 /* MainViewModel.swift in Sources */,
 				EB6D92BA29FDA39B008AAAC8 /* MainViewController.swift in Sources */,
-				EB6D933929FEA7D2008AAAC8 /* CryptoKitStackImpl.swift in Sources */,
 				EB6D92B629FDA39B008AAAC8 /* AppDelegate.swift in Sources */,
 				EB6D935429FEB859008AAAC8 /* GalleryCoordinator.swift in Sources */,
 				EB6D931F29FDE58E008AAAC8 /* AuthAssembly.swift in Sources */,
+				EB6D937029FEEB24008AAAC8 /* ImageModel.swift in Sources */,
 				EB6D934129FEAC0E008AAAC8 /* CoreAssembly.swift in Sources */,
 				EB6D935F29FEE181008AAAC8 /* VkAPIServiceImpl.swift in Sources */,
+				EB6D937429FEF6BE008AAAC8 /* APIResponse.swift in Sources */,
 				EB6D932B29FDEA43008AAAC8 /* AuthAsssemblyImpl.swift in Sources */,
 				EB6D92EC29FDC9B1008AAAC8 /* UICollectionViewCell+Extensions.swift in Sources */,
 				EB6D92F729FDCF69008AAAC8 /* AuthViewModel.swift in Sources */,
+				EB6D936829FEE3CC008AAAC8 /* NetworkStackImpl.swift in Sources */,
 				EB6D933C29FEAB9E008AAAC8 /* UserDefaultsStack.swift in Sources */,
+				EB6D936A29FEE3D9008AAAC8 /* NetworkError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

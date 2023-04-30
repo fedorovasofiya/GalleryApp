@@ -19,7 +19,7 @@ final class GalleryAssemblyImpl: GalleryAssembly {
     func makeGalleryModule(coordinator: GalleryCoordinator) -> UIViewController {
         let authService = serviceAssembly.makeAuthService()
         if authService.isTokenValid() {
-            let galleryViewModel = GalleryViewModel()
+            let galleryViewModel = GalleryViewModel(imageFetchService: serviceAssembly.makeImageFetchService(), coordinator: coordinator)
             let galleryViewController = GalleryViewController(viewModel: galleryViewModel)
             return galleryViewController
         }

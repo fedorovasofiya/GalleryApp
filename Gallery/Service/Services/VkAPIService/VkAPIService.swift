@@ -9,5 +9,4 @@ import Foundation
 
 protocol VkAPIService {
     func isTokenValid() -> Bool
-    func getAccessToken() -> String?
 }

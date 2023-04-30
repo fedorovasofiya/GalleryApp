@@ -9,11 +9,12 @@ import Foundation
 
 final class CoreAssemblyImpl: CoreAssembly {
     
-    func makeCryptoKitStack() -> CryptoKitStack {
-        return CryptoKitStackImpl(userDefaultsStack: makeUserDefaultsStack())
-    }
-    
     func makeUserDefaultsStack() -> UserDefaultsStack {
         return UserDefaultsStackImpl()
     }
+    
+    func makeNetworkStack() -> NetworkStack {
+        return NetworkStackImpl()
+    }
+    
 }

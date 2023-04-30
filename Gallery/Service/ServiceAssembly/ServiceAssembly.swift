@@ -9,4 +9,5 @@ import Foundation
 
 protocol ServiceAssembly {
     func makeAuthService() -> AuthService
+    func makeImageFetchService() -> ImageFetchService
 }

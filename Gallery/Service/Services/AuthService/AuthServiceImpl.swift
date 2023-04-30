@@ -16,7 +16,7 @@ final class AuthServiceImpl: VkAPIServiceImpl, AuthService {
     func getAuthDialogURLRequest() -> URLRequest? {
         var urlComponents = URLComponents()
         urlComponents.scheme = "https"
-        urlComponents.host = Configuration.host
+        urlComponents.host = Configuration.authHost
         urlComponents.path = "/authorize"
         urlComponents.queryItems = [
             URLQueryItem(name: "client_id", value: Configuration.clientID),

@@ -11,12 +11,12 @@ final class ServiceAssemblyImpl: ServiceAssembly {
     
     private let coreAssembly: CoreAssembly
     
-    private lazy var cryptoKitStack: CryptoKitStack = {
-        coreAssembly.makeCryptoKitStack()
-    }()
-    
     private lazy var userDefaultsStack: UserDefaultsStack = {
         coreAssembly.makeUserDefaultsStack()
+    }()
+    
+    private lazy var networkStack: NetworkStack = {
+        coreAssembly.makeNetworkStack()
     }()
     
     init(coreAssembly: CoreAssembly) {
@@ -27,6 +27,10 @@ final class ServiceAssemblyImpl: ServiceAssembly {
     
     func makeAuthService() -> AuthService {
         AuthServiceImpl(userDefaultsStack: userDefaultsStack)
+    }
+    
+    func makeImageFetchService() -> ImageFetchService {
+        ImageFetchServiceImpl(networkStack: networkStack, userDefaultsStack: userDefaultsStack)
     }
 
 }
