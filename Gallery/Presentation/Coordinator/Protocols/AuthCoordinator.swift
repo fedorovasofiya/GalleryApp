@@ -9,5 +9,6 @@ import Foundation
 import UIKit
 
 protocol AuthCoordinator: RootCoordinator {
-
+    func successfullyAuthorized()
+    func close()
 }

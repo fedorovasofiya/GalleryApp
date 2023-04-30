@@ -18,12 +18,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let window = UIWindow()
         self.window = window
         
-        let serviceAssembly = ServiceAssemblyImpl()
+        let coreAssembly = CoreAssemblyImpl()
+        let serviceAssembly = ServiceAssemblyImpl(coreAssembly: coreAssembly)
         coordinator = RootCoordinatorImpl(
             mainAssembly: MainAssemblyImpl(),
-            authAssembly: AuthAssemblyImpl(serviceAssembly: serviceAssembly)
+            authAssembly: AuthAssemblyImpl(serviceAssembly: serviceAssembly),
+            galleryAssembly: GalleryAssemblyImpl(serviceAssembly: serviceAssembly)
         )
-        
         coordinator?.start(in: window)
         
         return true

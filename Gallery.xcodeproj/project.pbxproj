@@ -34,6 +34,19 @@
 		EB6D932B29FDEA43008AAAC8 /* AuthAsssemblyImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6D932A29FDEA43008AAAC8 /* AuthAsssemblyImpl.swift */; };
 		EB6D932F29FE9A2D008AAAC8 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6D932E29FE9A2D008AAAC8 /* AuthService.swift */; };
 		EB6D933129FE9A47008AAAC8 /* AuthServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6D933029FE9A47008AAAC8 /* AuthServiceImpl.swift */; };
+		EB6D933729FEA7C6008AAAC8 /* CryptoKitStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6D933629FEA7C6008AAAC8 /* CryptoKitStack.swift */; };
+		EB6D933929FEA7D2008AAAC8 /* CryptoKitStackImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6D933829FEA7D2008AAAC8 /* CryptoKitStackImpl.swift */; };
+		EB6D933C29FEAB9E008AAAC8 /* UserDefaultsStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6D933B29FEAB9E008AAAC8 /* UserDefaultsStack.swift */; };
+		EB6D933E29FEABB0008AAAC8 /* UserDefaultsStackImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6D933D29FEABB0008AAAC8 /* UserDefaultsStackImpl.swift */; };
+		EB6D934129FEAC0E008AAAC8 /* CoreAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6D934029FEAC0E008AAAC8 /* CoreAssembly.swift */; };
+		EB6D934329FEAC19008AAAC8 /* CoreAssemblyImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6D934229FEAC19008AAAC8 /* CoreAssemblyImpl.swift */; };
+		EB6D934529FEB350008AAAC8 /* AuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6D934429FEB350008AAAC8 /* AuthError.swift */; };
+		EB6D934729FEB380008AAAC8 /* CryptoKitError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6D934629FEB380008AAAC8 /* CryptoKitError.swift */; };
+		EB6D934929FEB72E008AAAC8 /* GalleryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6D934829FEB72E008AAAC8 /* GalleryViewModel.swift */; };
+		EB6D934B29FEB746008AAAC8 /* GalleryViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6D934A29FEB746008AAAC8 /* GalleryViewOutput.swift */; };
+		EB6D935029FEB804008AAAC8 /* GalleryAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6D934F29FEB804008AAAC8 /* GalleryAssembly.swift */; };
+		EB6D935229FEB812008AAAC8 /* GalleryAssemblyImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6D935129FEB812008AAAC8 /* GalleryAssemblyImpl.swift */; };
+		EB6D935429FEB859008AAAC8 /* GalleryCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6D935329FEB859008AAAC8 /* GalleryCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +80,19 @@
 		EB6D932A29FDEA43008AAAC8 /* AuthAsssemblyImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAsssemblyImpl.swift; sourceTree = "<group>"; };
 		EB6D932E29FE9A2D008AAAC8 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		EB6D933029FE9A47008AAAC8 /* AuthServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServiceImpl.swift; sourceTree = "<group>"; };
+		EB6D933629FEA7C6008AAAC8 /* CryptoKitStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoKitStack.swift; sourceTree = "<group>"; };
+		EB6D933829FEA7D2008AAAC8 /* CryptoKitStackImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoKitStackImpl.swift; sourceTree = "<group>"; };
+		EB6D933B29FEAB9E008AAAC8 /* UserDefaultsStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsStack.swift; sourceTree = "<group>"; };
+		EB6D933D29FEABB0008AAAC8 /* UserDefaultsStackImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsStackImpl.swift; sourceTree = "<group>"; };
+		EB6D934029FEAC0E008AAAC8 /* CoreAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreAssembly.swift; sourceTree = "<group>"; };
+		EB6D934229FEAC19008AAAC8 /* CoreAssemblyImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreAssemblyImpl.swift; sourceTree = "<group>"; };
+		EB6D934429FEB350008AAAC8 /* AuthError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthError.swift; sourceTree = "<group>"; };
+		EB6D934629FEB380008AAAC8 /* CryptoKitError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoKitError.swift; sourceTree = "<group>"; };
+		EB6D934829FEB72E008AAAC8 /* GalleryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewModel.swift; sourceTree = "<group>"; };
+		EB6D934A29FEB746008AAAC8 /* GalleryViewOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewOutput.swift; sourceTree = "<group>"; };
+		EB6D934F29FEB804008AAAC8 /* GalleryAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryAssembly.swift; sourceTree = "<group>"; };
+		EB6D935129FEB812008AAAC8 /* GalleryAssemblyImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryAssemblyImpl.swift; sourceTree = "<group>"; };
+		EB6D935329FEB859008AAAC8 /* GalleryCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCoordinator.swift; sourceTree = "<group>"; };
 		EEACD74A07E757E0BD130B5B /* Pods-Gallery.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gallery.debug.xcconfig"; path = "Target Support Files/Pods-Gallery/Pods-Gallery.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -123,6 +149,7 @@
 				EB6D92E229FDC834008AAAC8 /* Application */,
 				EB6D92E329FDC8AC008AAAC8 /* Presentation */,
 				EB6D92E829FDC982008AAAC8 /* Service */,
+				EB6D933429FEA78F008AAAC8 /* Core */,
 			);
 			path = Gallery;
 			sourceTree = "<group>";
@@ -186,8 +213,9 @@
 		EB6D92F129FDCCBC008AAAC8 /* Gallery */ = {
 			isa = PBXGroup;
 			children = (
-				EB6D92E429FDC93A008AAAC8 /* ImageCollectionViewCell.swift */,
-				EB6D92E629FDC963008AAAC8 /* GalleryViewController.swift */,
+				EB6D934E29FEB7BA008AAAC8 /* Assembly */,
+				EB6D934D29FEB754008AAAC8 /* View */,
+				EB6D934C29FEB74A008AAAC8 /* ViewModel */,
 			);
 			path = Gallery;
 			sourceTree = "<group>";
@@ -306,6 +334,7 @@
 				EB6D930229FDE0FC008AAAC8 /* RootCoordinator.swift */,
 				EB6D930529FDE148008AAAC8 /* MainCoordinator.swift */,
 				EB6D932329FDE710008AAAC8 /* AuthCoordinator.swift */,
+				EB6D935329FEB859008AAAC8 /* GalleryCoordinator.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -315,8 +344,74 @@
 			children = (
 				EB6D932E29FE9A2D008AAAC8 /* AuthService.swift */,
 				EB6D933029FE9A47008AAAC8 /* AuthServiceImpl.swift */,
+				EB6D934429FEB350008AAAC8 /* AuthError.swift */,
 			);
 			path = AuthService;
+			sourceTree = "<group>";
+		};
+		EB6D933429FEA78F008AAAC8 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				EB6D933F29FEABF4008AAAC8 /* CoreAssembly */,
+				EB6D933A29FEAB7E008AAAC8 /* UserDefaultsStack */,
+				EB6D933529FEA7A1008AAAC8 /* CryptoKitStack */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		EB6D933529FEA7A1008AAAC8 /* CryptoKitStack */ = {
+			isa = PBXGroup;
+			children = (
+				EB6D933629FEA7C6008AAAC8 /* CryptoKitStack.swift */,
+				EB6D933829FEA7D2008AAAC8 /* CryptoKitStackImpl.swift */,
+				EB6D934629FEB380008AAAC8 /* CryptoKitError.swift */,
+			);
+			path = CryptoKitStack;
+			sourceTree = "<group>";
+		};
+		EB6D933A29FEAB7E008AAAC8 /* UserDefaultsStack */ = {
+			isa = PBXGroup;
+			children = (
+				EB6D933B29FEAB9E008AAAC8 /* UserDefaultsStack.swift */,
+				EB6D933D29FEABB0008AAAC8 /* UserDefaultsStackImpl.swift */,
+			);
+			path = UserDefaultsStack;
+			sourceTree = "<group>";
+		};
+		EB6D933F29FEABF4008AAAC8 /* CoreAssembly */ = {
+			isa = PBXGroup;
+			children = (
+				EB6D934029FEAC0E008AAAC8 /* CoreAssembly.swift */,
+				EB6D934229FEAC19008AAAC8 /* CoreAssemblyImpl.swift */,
+			);
+			path = CoreAssembly;
+			sourceTree = "<group>";
+		};
+		EB6D934C29FEB74A008AAAC8 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				EB6D934829FEB72E008AAAC8 /* GalleryViewModel.swift */,
+				EB6D934A29FEB746008AAAC8 /* GalleryViewOutput.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		EB6D934D29FEB754008AAAC8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EB6D92E429FDC93A008AAAC8 /* ImageCollectionViewCell.swift */,
+				EB6D92E629FDC963008AAAC8 /* GalleryViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		EB6D934E29FEB7BA008AAAC8 /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				EB6D934F29FEB804008AAAC8 /* GalleryAssembly.swift */,
+				EB6D935129FEB812008AAAC8 /* GalleryAssemblyImpl.swift */,
+			);
+			path = Assembly;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -434,18 +529,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB6D934529FEB350008AAAC8 /* AuthError.swift in Sources */,
+				EB6D934329FEAC19008AAAC8 /* CoreAssemblyImpl.swift in Sources */,
+				EB6D934729FEB380008AAAC8 /* CryptoKitError.swift in Sources */,
 				EB6D931229FDE279008AAAC8 /* ServiceAssemblyImpl.swift in Sources */,
 				EB6D930129FDE0EC008AAAC8 /* RootCoordinatorImpl.swift in Sources */,
 				EB6D930629FDE148008AAAC8 /* MainCoordinator.swift in Sources */,
 				EB6D930B29FDE213008AAAC8 /* MainAssembly.swift in Sources */,
+				EB6D934929FEB72E008AAAC8 /* GalleryViewModel.swift in Sources */,
 				EB6D931029FDE26C008AAAC8 /* ServiceAssembly.swift in Sources */,
 				EB6D932429FDE710008AAAC8 /* AuthCoordinator.swift in Sources */,
+				EB6D935229FEB812008AAAC8 /* GalleryAssemblyImpl.swift in Sources */,
 				EB6D931629FDE387008AAAC8 /* MainViewOutput.swift in Sources */,
+				EB6D935029FEB804008AAAC8 /* GalleryAssembly.swift in Sources */,
+				EB6D933729FEA7C6008AAAC8 /* CryptoKitStack.swift in Sources */,
 				EB6D932F29FE9A2D008AAAC8 /* AuthService.swift in Sources */,
 				EB6D932829FDEA05008AAAC8 /* MainAssemblyImpl.swift in Sources */,
 				EB6D92EE29FDC9C5008AAAC8 /* Reusable.swift in Sources */,
 				EB6D930329FDE0FC008AAAC8 /* RootCoordinator.swift in Sources */,
 				EB6D92E529FDC93A008AAAC8 /* ImageCollectionViewCell.swift in Sources */,
+				EB6D933E29FEABB0008AAAC8 /* UserDefaultsStackImpl.swift in Sources */,
+				EB6D934B29FEB746008AAAC8 /* GalleryViewOutput.swift in Sources */,
 				EB6D933129FE9A47008AAAC8 /* AuthServiceImpl.swift in Sources */,
 				EB6D931D29FDE55E008AAAC8 /* AuthViewOutput.swift in Sources */,
 				EB6D92E729FDC963008AAAC8 /* GalleryViewController.swift in Sources */,
@@ -453,11 +557,15 @@
 				EB6D92F429FDCDA1008AAAC8 /* AuthViewController.swift in Sources */,
 				EB6D931429FDE35D008AAAC8 /* MainViewModel.swift in Sources */,
 				EB6D92BA29FDA39B008AAAC8 /* MainViewController.swift in Sources */,
+				EB6D933929FEA7D2008AAAC8 /* CryptoKitStackImpl.swift in Sources */,
 				EB6D92B629FDA39B008AAAC8 /* AppDelegate.swift in Sources */,
+				EB6D935429FEB859008AAAC8 /* GalleryCoordinator.swift in Sources */,
 				EB6D931F29FDE58E008AAAC8 /* AuthAssembly.swift in Sources */,
+				EB6D934129FEAC0E008AAAC8 /* CoreAssembly.swift in Sources */,
 				EB6D932B29FDEA43008AAAC8 /* AuthAsssemblyImpl.swift in Sources */,
 				EB6D92EC29FDC9B1008AAAC8 /* UICollectionViewCell+Extensions.swift in Sources */,
 				EB6D92F729FDCF69008AAAC8 /* AuthViewModel.swift in Sources */,
+				EB6D933C29FEAB9E008AAAC8 /* UserDefaultsStack.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

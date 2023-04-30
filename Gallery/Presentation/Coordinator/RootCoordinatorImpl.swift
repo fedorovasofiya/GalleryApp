@@ -14,15 +14,17 @@ final class RootCoordinatorImpl: RootCoordinator {
 
     private let mainAssembly: MainAssembly
     private let authAssembly: AuthAssembly
+    private let galleryAssembly: GalleryAssembly
     
-    init(mainAssembly: MainAssembly, authAssembly: AuthAssembly) {
+    init(mainAssembly: MainAssembly, authAssembly: AuthAssembly, galleryAssembly: GalleryAssembly) {
         self.mainAssembly = mainAssembly
         self.authAssembly = authAssembly
+        self.galleryAssembly = galleryAssembly
     }
     
     func start(in window: UIWindow) {
-        let vc = mainAssembly.makeMainModule(coordinator: self)
-        window.rootViewController = vc
+        let mainViewController = mainAssembly.makeMainModule(coordinator: self)
+        window.rootViewController = mainViewController
         window.makeKeyAndVisible()
         self.window = window
     }
@@ -38,5 +40,20 @@ extension RootCoordinatorImpl: MainCoordinator {
 }
 
 extension RootCoordinatorImpl: AuthCoordinator {
+    func successfullyAuthorized() {
+        let galleryViewController = galleryAssembly.makeGalleryModule(coordinator: self)
+        let navigationController = UINavigationController(rootViewController: galleryViewController)
+        window?.rootViewController = navigationController
+        window?.makeKeyAndVisible()
+    }
     
+    func close() {
+        window?.rootViewController?.dismiss(animated: true)
+    }
+}
+
+extension RootCoordinatorImpl: GalleryCoordinator {
+    func openDetails() {
+        
+    }
 }

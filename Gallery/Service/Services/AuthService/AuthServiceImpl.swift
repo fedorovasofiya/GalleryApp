@@ -7,12 +7,19 @@
 
 import Foundation
 import WebKit
+import CryptoKit
 
 final class AuthServiceImpl: AuthService {
     
     private struct Configuration {
         static let host = "oauth.vk.com"
         static let clientID = "51630245"
+    }
+    
+    private let userDefaultsStack: UserDefaultsStack
+    
+    init(userDefaultsStack: UserDefaultsStack) {
+        self.userDefaultsStack = userDefaultsStack
     }
     
     func getAuthDialogURLRequest() -> URLRequest? {
@@ -46,6 +53,11 @@ final class AuthServiceImpl: AuthService {
         components.query = query
         let queryItems = components.queryItems
         
+        if (queryItems?.first(where: { $0.name == "error" })?.value) != nil {
+            completion(.failure(AuthError.accessDenied))
+            return
+        }
+        
         guard let accessToken = queryItems?.first(where: { $0.name == "access_token" })?.value else {
             completion(.failure(AuthError.noAccessToken))
             return
@@ -56,10 +68,8 @@ final class AuthServiceImpl: AuthService {
             return
         }
         
-        print(accessToken)
-        print(expiresIn)
-        
-        // Access token save
+        userDefaultsStack.setKey(value: accessToken, keyName: "access_token")
+        userDefaultsStack.setKey(value: expiresIn, keyName: "expires_in")
         completion(.success(()))
     }
     
@@ -68,25 +78,6 @@ final class AuthServiceImpl: AuthService {
         let date = Date(timeIntervalSince1970: 0)
         if let data = websiteDataTypes as? Set<String> {
             WKWebsiteDataStore.default().removeData(ofTypes: data, modifiedSince: date, completionHandler: {})
-        }
-    }
-}
-    
-enum AuthError: Error {
-    case incorrectURL
-    case noAccessToken
-    case noExpiresIn
-}
-
-extension AuthError: LocalizedError {
-    var errorDescription: String? {
-        switch self {
-        case .incorrectURL:
-            return "Invalid URL"
-        case .noAccessToken:
-            return "There is no access_token param in query items"
-        case .noExpiresIn:
-            return "There is no expires_in param in query items"
         }
     }
 }

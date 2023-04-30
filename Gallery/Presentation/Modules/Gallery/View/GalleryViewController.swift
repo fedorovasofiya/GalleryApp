@@ -17,6 +17,17 @@ final class GalleryViewController: UIViewController {
         return collectionView
     }()
     
+    private let viewModel: GalleryViewOutput
+    
+    init(viewModel: GalleryViewOutput) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     // MARK: - Life Cycle
 
     override func viewDidLoad() {

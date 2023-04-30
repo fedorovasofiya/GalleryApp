@@ -22,6 +22,7 @@ final class AuthViewModel: AuthViewOutput {
     }
     
     func viewDidLoad() {
+        authService.cleanCache()
         sendAuthDialogRequest()
     }
     
@@ -31,13 +32,23 @@ final class AuthViewModel: AuthViewOutput {
     }
     
     func decidePolicy(decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
+        print(navigationResponse.response.url)
         authService.saveAccessToken(from: navigationResponse.response.url) { result in
             switch result {
             case .success:
                 decisionHandler(.cancel)
-            case .failure:
-                // FIXME: обработка ошибок
-                decisionHandler(.allow)
+                coordinator?.successfullyAuthorized()
+            case .failure(let error):
+                if let error = error as? AuthError {
+                    switch error {
+                    case .accessDenied:
+                        decisionHandler(.cancel)
+                        coordinator?.close()
+                        // FIXME: обработка ошибок
+                    default:
+                        decisionHandler(.allow)
+                    }
+                }
             }
         }
     }
