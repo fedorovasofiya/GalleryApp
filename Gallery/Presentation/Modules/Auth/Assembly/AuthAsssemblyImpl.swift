@@ -17,7 +17,7 @@ final class AuthAssemblyImpl: AuthAssembly {
     }
     
     func makeAuthModule(coordinator: AuthCoordinator) -> UIViewController {
-        let authViewModel = AuthViewModel(urlRequestFactory: serviceAssembly.URLRequestFactoryService(), coordinator: coordinator)
+        let authViewModel = AuthViewModel(authService: serviceAssembly.makeAuthService(), coordinator: coordinator)
         let authViewController = AuthViewController(viewModel: authViewModel)
         return authViewController
     }

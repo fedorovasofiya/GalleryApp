@@ -11,8 +11,8 @@ final class ServiceAssemblyImpl: ServiceAssembly {
 
     // MARK: - Public Methods
     
-    func URLRequestFactoryService() -> URLRequestFactory {
-        URLRequestFactoryImpl()
+    func makeAuthService() -> AuthService {
+        AuthServiceImpl()
     }
 
 }

@@ -8,5 +8,5 @@
 import Foundation
 
 protocol ServiceAssembly {
-    func URLRequestFactoryService() -> URLRequestFactory
+    func makeAuthService() -> AuthService
 }

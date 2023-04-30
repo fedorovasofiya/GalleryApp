@@ -85,6 +85,7 @@ final class AuthViewController: UIViewController {
     }
     
     @objc private func didTapRefresh() {
+        activityIndicator.startAnimating()
         viewModel.didTapRefresh()
     }
     
@@ -113,29 +114,11 @@ extension AuthViewController: WKNavigationDelegate {
         activityIndicator.stopAnimating()
     }
     
-//    func webView(_ webView: WKWebView,
-//                 decidePolicyFor navigationResponse: WKNavigationResponse,
-//                 decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
-//        guard let url = navigationResponse.response.url,
-//                url.path == "/blank.html",
-//                let fragment = url.fragment else {
-//            decisionHandler(.allow)
-//            return
-//        }
-//        print(url)
-//        let params = fragment.components(separatedBy: "&")
-//            .map { $0.components(separatedBy: "=") }
-//            .reduce([String: String]()) { res, param in
-//                var dict = res
-//                let key = param[0]
-//                let value = param[1]
-//                dict[key] = value
-//                return dict
-//            }
-//
-//        if let accessToken = params["access_token"] {
-//            tokenSubject.send(accessToken)
-//        }
-//        decisionHandler(.allow)
-//    }
+    func webView(_ webView: WKWebView,
+                 decidePolicyFor navigationResponse: WKNavigationResponse,
+                 decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
+        viewModel.decidePolicy(decidePolicyFor: navigationResponse) { policy in
+            decisionHandler(policy)
+        }
+    }
 }

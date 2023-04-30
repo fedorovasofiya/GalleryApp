@@ -19,8 +19,6 @@
 		EB6D92F029FDC9CF008AAAC8 /* Configurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6D92EF29FDC9CF008AAAC8 /* Configurable.swift */; };
 		EB6D92F429FDCDA1008AAAC8 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6D92F329FDCDA1008AAAC8 /* AuthViewController.swift */; };
 		EB6D92F729FDCF69008AAAC8 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6D92F629FDCF69008AAAC8 /* AuthViewModel.swift */; };
-		EB6D92F929FDD664008AAAC8 /* URLRequestFactoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6D92F829FDD664008AAAC8 /* URLRequestFactoryImpl.swift */; };
-		EB6D92FC29FDE069008AAAC8 /* URLRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6D92FB29FDE069008AAAC8 /* URLRequestFactory.swift */; };
 		EB6D930129FDE0EC008AAAC8 /* RootCoordinatorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6D930029FDE0EC008AAAC8 /* RootCoordinatorImpl.swift */; };
 		EB6D930329FDE0FC008AAAC8 /* RootCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6D930229FDE0FC008AAAC8 /* RootCoordinator.swift */; };
 		EB6D930629FDE148008AAAC8 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6D930529FDE148008AAAC8 /* MainCoordinator.swift */; };
@@ -34,6 +32,8 @@
 		EB6D932429FDE710008AAAC8 /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6D932329FDE710008AAAC8 /* AuthCoordinator.swift */; };
 		EB6D932829FDEA05008AAAC8 /* MainAssemblyImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6D932729FDEA05008AAAC8 /* MainAssemblyImpl.swift */; };
 		EB6D932B29FDEA43008AAAC8 /* AuthAsssemblyImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6D932A29FDEA43008AAAC8 /* AuthAsssemblyImpl.swift */; };
+		EB6D932F29FE9A2D008AAAC8 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6D932E29FE9A2D008AAAC8 /* AuthService.swift */; };
+		EB6D933129FE9A47008AAAC8 /* AuthServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6D933029FE9A47008AAAC8 /* AuthServiceImpl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,8 +52,6 @@
 		EB6D92EF29FDC9CF008AAAC8 /* Configurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configurable.swift; sourceTree = "<group>"; };
 		EB6D92F329FDCDA1008AAAC8 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		EB6D92F629FDCF69008AAAC8 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
-		EB6D92F829FDD664008AAAC8 /* URLRequestFactoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequestFactoryImpl.swift; sourceTree = "<group>"; };
-		EB6D92FB29FDE069008AAAC8 /* URLRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequestFactory.swift; sourceTree = "<group>"; };
 		EB6D930029FDE0EC008AAAC8 /* RootCoordinatorImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootCoordinatorImpl.swift; sourceTree = "<group>"; };
 		EB6D930229FDE0FC008AAAC8 /* RootCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootCoordinator.swift; sourceTree = "<group>"; };
 		EB6D930529FDE148008AAAC8 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
@@ -67,6 +65,8 @@
 		EB6D932329FDE710008AAAC8 /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
 		EB6D932729FDEA05008AAAC8 /* MainAssemblyImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAssemblyImpl.swift; sourceTree = "<group>"; };
 		EB6D932A29FDEA43008AAAC8 /* AuthAsssemblyImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAsssemblyImpl.swift; sourceTree = "<group>"; };
+		EB6D932E29FE9A2D008AAAC8 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		EB6D933029FE9A47008AAAC8 /* AuthServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServiceImpl.swift; sourceTree = "<group>"; };
 		EEACD74A07E757E0BD130B5B /* Pods-Gallery.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gallery.debug.xcconfig"; path = "Target Support Files/Pods-Gallery/Pods-Gallery.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -212,19 +212,10 @@
 			path = Auth;
 			sourceTree = "<group>";
 		};
-		EB6D92FA29FDE02F008AAAC8 /* URLRequestFactory */ = {
-			isa = PBXGroup;
-			children = (
-				EB6D92FB29FDE069008AAAC8 /* URLRequestFactory.swift */,
-				EB6D92F829FDD664008AAAC8 /* URLRequestFactoryImpl.swift */,
-			);
-			path = URLRequestFactory;
-			sourceTree = "<group>";
-		};
 		EB6D92FD29FDE099008AAAC8 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				EB6D92FA29FDE02F008AAAC8 /* URLRequestFactory */,
+				EB6D933229FE9FF6008AAAC8 /* AuthService */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -317,6 +308,15 @@
 				EB6D932329FDE710008AAAC8 /* AuthCoordinator.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		EB6D933229FE9FF6008AAAC8 /* AuthService */ = {
+			isa = PBXGroup;
+			children = (
+				EB6D932E29FE9A2D008AAAC8 /* AuthService.swift */,
+				EB6D933029FE9A47008AAAC8 /* AuthServiceImpl.swift */,
+			);
+			path = AuthService;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -441,14 +441,14 @@
 				EB6D931029FDE26C008AAAC8 /* ServiceAssembly.swift in Sources */,
 				EB6D932429FDE710008AAAC8 /* AuthCoordinator.swift in Sources */,
 				EB6D931629FDE387008AAAC8 /* MainViewOutput.swift in Sources */,
+				EB6D932F29FE9A2D008AAAC8 /* AuthService.swift in Sources */,
 				EB6D932829FDEA05008AAAC8 /* MainAssemblyImpl.swift in Sources */,
 				EB6D92EE29FDC9C5008AAAC8 /* Reusable.swift in Sources */,
 				EB6D930329FDE0FC008AAAC8 /* RootCoordinator.swift in Sources */,
 				EB6D92E529FDC93A008AAAC8 /* ImageCollectionViewCell.swift in Sources */,
-				EB6D92F929FDD664008AAAC8 /* URLRequestFactoryImpl.swift in Sources */,
+				EB6D933129FE9A47008AAAC8 /* AuthServiceImpl.swift in Sources */,
 				EB6D931D29FDE55E008AAAC8 /* AuthViewOutput.swift in Sources */,
 				EB6D92E729FDC963008AAAC8 /* GalleryViewController.swift in Sources */,
-				EB6D92FC29FDE069008AAAC8 /* URLRequestFactory.swift in Sources */,
 				EB6D92F029FDC9CF008AAAC8 /* Configurable.swift in Sources */,
 				EB6D92F429FDCDA1008AAAC8 /* AuthViewController.swift in Sources */,
 				EB6D931429FDE35D008AAAC8 /* MainViewModel.swift in Sources */,
