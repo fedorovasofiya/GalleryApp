@@ -7,8 +7,8 @@
 
 import Foundation
 
-protocol AuthService {
+protocol AuthService: VkAPIService {
     func getAuthDialogURLRequest() -> URLRequest?
-    func saveAccessToken(from url: URL?, completion: (Result<Void, Error>) -> Void)
+    func saveAccount(from url: URL?, completion: (Result<Void, Error>) -> Void)
     func cleanCache()
 }

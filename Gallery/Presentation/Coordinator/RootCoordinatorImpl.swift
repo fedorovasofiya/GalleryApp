@@ -12,48 +12,56 @@ final class RootCoordinatorImpl: RootCoordinator {
     
     private weak var window: UIWindow?
 
-    private let mainAssembly: MainAssembly
     private let authAssembly: AuthAssembly
     private let galleryAssembly: GalleryAssembly
     
-    init(mainAssembly: MainAssembly, authAssembly: AuthAssembly, galleryAssembly: GalleryAssembly) {
-        self.mainAssembly = mainAssembly
+    init(authAssembly: AuthAssembly, galleryAssembly: GalleryAssembly) {
         self.authAssembly = authAssembly
         self.galleryAssembly = galleryAssembly
     }
     
     func start(in window: UIWindow) {
-        let mainViewController = mainAssembly.makeMainModule(coordinator: self)
-        window.rootViewController = mainViewController
-        window.makeKeyAndVisible()
         self.window = window
+        openGallery()
     }
-
-}
-
-extension RootCoordinatorImpl: MainCoordinator {
-    func openAuthScreen() {
-        let authViewController = authAssembly.makeAuthModule(coordinator: self)
-        let navigationController = UINavigationController(rootViewController: authViewController)
-        window?.rootViewController?.present(navigationController, animated: true)
-    }
-}
-
-extension RootCoordinatorImpl: AuthCoordinator {
-    func successfullyAuthorized() {
+    
+    // MARK: - Navigation
+    
+    private func openGallery() {
         let galleryViewController = galleryAssembly.makeGalleryModule(coordinator: self)
         let navigationController = UINavigationController(rootViewController: galleryViewController)
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
     }
     
-    func close() {
-        window?.rootViewController?.dismiss(animated: true)
+    private func openAuth() {
+        let authViewController = authAssembly.makeAuthModule(coordinator: self)
+        let navigationController = UINavigationController(rootViewController: authViewController)
+        window?.rootViewController?.present(navigationController, animated: true)
     }
+
 }
 
 extension RootCoordinatorImpl: GalleryCoordinator {
+    func openAuthScreen() {
+        openAuth()
+    }
+    
+    func openGalleryScreen() {
+        openGallery()
+    }
+    
     func openDetails() {
         
+    }
+}
+
+extension RootCoordinatorImpl: AuthCoordinator {
+    func successfullyAuthorized() {
+        openGallery()
+    }
+    
+    func close() {
+        window?.rootViewController?.dismiss(animated: true)
     }
 }

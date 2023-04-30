@@ -8,5 +8,7 @@
 import Foundation
 
 protocol GalleryCoordinator: RootCoordinator {
+    func openAuthScreen()
+    func openGalleryScreen()
     func openDetails()
 }

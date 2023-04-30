@@ -33,7 +33,7 @@ final class AuthViewModel: AuthViewOutput {
     
     func decidePolicy(decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
         print(navigationResponse.response.url)
-        authService.saveAccessToken(from: navigationResponse.response.url) { result in
+        authService.saveAccount(from: navigationResponse.response.url) { result in
             switch result {
             case .success:
                 decisionHandler(.cancel)

@@ -9,9 +9,9 @@ import Foundation
 
 final class MainViewModel: MainViewOutput {
     
-    private weak var coordinator: MainCoordinator?
+    private weak var coordinator: GalleryCoordinator?
     
-    init(coordinator: MainCoordinator?) {
+    init(coordinator: GalleryCoordinator?) {
         self.coordinator = coordinator
     }
     

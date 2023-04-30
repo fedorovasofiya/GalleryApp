@@ -9,18 +9,9 @@ import Foundation
 import WebKit
 import CryptoKit
 
-final class AuthServiceImpl: AuthService {
+final class AuthServiceImpl: VkAPIServiceImpl, AuthService {
     
-    private struct Configuration {
-        static let host = "oauth.vk.com"
-        static let clientID = "51630245"
-    }
-    
-    private let userDefaultsStack: UserDefaultsStack
-    
-    init(userDefaultsStack: UserDefaultsStack) {
-        self.userDefaultsStack = userDefaultsStack
-    }
+    // MARK: - Public Methods
     
     func getAuthDialogURLRequest() -> URLRequest? {
         var urlComponents = URLComponents()
@@ -40,37 +31,17 @@ final class AuthServiceImpl: AuthService {
         return URLRequest(url: url)
     }
     
-    func saveAccessToken(from url: URL?, completion: (Result<Void, Error>) -> Void) {
-        guard let url = url,
-              url.path == "/blank.html",
-              let query = url.fragment
-        else {
-            completion(.failure(AuthError.incorrectURL))
-            return
+    func saveAccount(from url: URL?, completion: (Result<Void, Error>) -> Void) {
+        do {
+            var urlComponents = URLComponents()
+            urlComponents.query = try getQuery(url: url)
+            try checkPath(in: urlComponents)
+            try saveAccessToken(from: urlComponents)
+            try saveExpirationDate(from: urlComponents)
+            completion(.success(()))
+        } catch {
+            completion(.failure(error))
         }
-        
-        var components = URLComponents()
-        components.query = query
-        let queryItems = components.queryItems
-        
-        if (queryItems?.first(where: { $0.name == "error" })?.value) != nil {
-            completion(.failure(AuthError.accessDenied))
-            return
-        }
-        
-        guard let accessToken = queryItems?.first(where: { $0.name == "access_token" })?.value else {
-            completion(.failure(AuthError.noAccessToken))
-            return
-        }
-        guard let expiresInString = queryItems?.first(where: { $0.name == "expires_in" })?.value,
-              let expiresIn = Int(expiresInString) else {
-            completion(.failure(AuthError.noExpiresIn))
-            return
-        }
-        
-        userDefaultsStack.setKey(value: accessToken, keyName: "access_token")
-        userDefaultsStack.setKey(value: expiresIn, keyName: "expires_in")
-        completion(.success(()))
     }
     
     func cleanCache() {
@@ -79,5 +50,46 @@ final class AuthServiceImpl: AuthService {
         if let data = websiteDataTypes as? Set<String> {
             WKWebsiteDataStore.default().removeData(ofTypes: data, modifiedSince: date, completionHandler: {})
         }
+    }
+    
+    // MARK: - Private Methods
+    
+    private func getQuery(url: URL?) throws -> String {
+        guard let url = url,
+              let query = url.fragment
+        else {
+            throw AuthError.incorrectURL
+        }
+        return query
+    }
+    
+    private func checkPath(in components: URLComponents) throws {
+        guard let url = components.url,
+              url.path == "/blank.html" else {
+            throw AuthError.incorrectURL
+        }
+        let queryItems = components.queryItems
+        if (queryItems?.first(where: { $0.name == "error" })?.value) != nil {
+            throw AuthError.accessDenied
+        }
+    }
+    
+    private func saveAccessToken(from components: URLComponents) throws {
+        let queryItems = components.queryItems
+        guard let accessToken = queryItems?.first(where: { $0.name == Configuration.accessTokenParam })?.value else {
+            throw AuthError.noAccessToken
+        }
+        setAccessToken(accessToken: accessToken)
+    }
+    
+    private func saveExpirationDate(from components: URLComponents) throws {
+        let queryItems = components.queryItems
+        guard let expiresInString = queryItems?.first(where: { $0.name == Configuration.expiresInParam })?.value,
+              let expiresIn = Int(expiresInString)
+        else {
+            throw AuthError.noExpiresIn
+        }
+        let expirationDate = Date().addingTimeInterval(TimeInterval(expiresIn))
+        setExpirationDate(expirationDate: expirationDate)
     }
 }

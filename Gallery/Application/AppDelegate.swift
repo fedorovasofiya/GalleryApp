@@ -21,7 +21,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let coreAssembly = CoreAssemblyImpl()
         let serviceAssembly = ServiceAssemblyImpl(coreAssembly: coreAssembly)
         coordinator = RootCoordinatorImpl(
-            mainAssembly: MainAssemblyImpl(),
             authAssembly: AuthAssemblyImpl(serviceAssembly: serviceAssembly),
             galleryAssembly: GalleryAssemblyImpl(serviceAssembly: serviceAssembly)
         )
