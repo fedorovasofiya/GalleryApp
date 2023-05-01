@@ -35,6 +35,9 @@
 При открытии share-menu также в консоли печаются ошибки с констрейнтами. Аналогичная проблема описана здесь:
 - https://stackoverflow.com/questions/71518300/swift-uiactivitycontroller-constraints-error-on-ios15-4
 
+И еще одна проблема, которая тоже, вероятно, не на моей стороне:
+- https://stackoverflow.com/questions/74038451/in-xcode-14-ios-16-purple-warnings-starting-with-this-method-should-not-be-ca
+
 ## Описание проекта
 - Авторизация в социальной сети Вконтакте через OAuth с использованием WKWebView
 - Отображение фотографий из альбома https://vk.com/album-128666765_266310117 в Collection View. При нажатии открывается новый экран c показом фото. В заголовке дата загрузки фото.
