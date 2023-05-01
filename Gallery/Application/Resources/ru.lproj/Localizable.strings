@@ -1,0 +1,10 @@
+/* MainViewController */
+"Login via VK" = "Вход через VK";
+
+/* AuthViewController */
+"Authorization" = "Авторизация";
+"Cancel" = "Отмена";
+
+/* GalleryViewController */
+"Logout" = "Выход";
+"Cancel" = "Отмена";

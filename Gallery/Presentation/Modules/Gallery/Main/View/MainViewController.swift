@@ -53,7 +53,7 @@ final class MainViewController: UIViewController {
         enterButton.backgroundColor = .label
         enterButton.layer.cornerRadius = Constants.cornerRadius
         enterButton.setTitleColor(.systemBackground, for: .normal)
-        enterButton.setTitle("Вход через VK", for: .normal)
+        enterButton.setTitle("Login via VK".localized(), for: .normal)
         enterButton.titleLabel?.font = .systemFont(ofSize: 15, weight: .medium)
         enterButton.addTarget(self, action: #selector(didTapEnter), for: .touchUpInside)
         enterButton.translatesAutoresizingMaskIntoConstraints = false

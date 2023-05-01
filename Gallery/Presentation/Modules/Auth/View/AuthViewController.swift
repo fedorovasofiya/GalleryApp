@@ -30,7 +30,7 @@ final class AuthViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "Авторизация"
+        navigationItem.title = "Authorization".localized()
         view.addSubview(webView)
         view.backgroundColor = .systemBackground
         configureButtons()
@@ -48,7 +48,7 @@ final class AuthViewController: UIViewController {
     // MARK: - UI Setup
     
     private func configureButtons() {
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Отмена", style: .plain, target: self, action: #selector (didTapCancel))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel".localized(), style: .plain, target: self, action: #selector (didTapCancel))
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector (didTapRefresh))
     }
     

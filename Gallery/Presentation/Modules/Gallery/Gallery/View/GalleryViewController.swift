@@ -52,7 +52,7 @@ final class GalleryViewController: UIViewController {
     
     private func configureButton() {
         navigationController?.navigationBar.tintColor = .label
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Выход", style: .plain, target: self, action: #selector (didTapExit))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Logout".localized(), style: .plain, target: self, action: #selector (didTapExit))
     }
     
     private func setupCollectionView() {

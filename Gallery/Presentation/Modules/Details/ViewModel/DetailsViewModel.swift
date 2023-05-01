@@ -64,7 +64,7 @@ final class DetailsViewModel: DetailsViewOutput {
                                           
     private func makeDisplayingImageModel(data: Data, date: Date) -> DisplayingImage {
         let formatter = DateFormatter()
-        formatter.dateFormat = "d MMMM yyyy"
+        formatter.setLocalizedDateFormatFromTemplate("d MMMM yyyy")
         let dateString = formatter.string(from: date)
         return DisplayingImage(date: dateString, image: UIImage(data: data))
     }
