@@ -11,14 +11,6 @@ final class ServiceAssemblyImpl: ServiceAssembly {
     
     private let coreAssembly: CoreAssembly
     
-    private lazy var userDefaultsStack: UserDefaultsStack = {
-        coreAssembly.makeUserDefaultsStack()
-    }()
-    
-    private lazy var networkStack: NetworkStack = {
-        coreAssembly.makeNetworkStack()
-    }()
-    
     init(coreAssembly: CoreAssembly) {
         self.coreAssembly = coreAssembly
     }
@@ -26,11 +18,11 @@ final class ServiceAssemblyImpl: ServiceAssembly {
     // MARK: - Public Methods
     
     func makeAuthService() -> AuthService {
-        AuthServiceImpl(userDefaultsStack: userDefaultsStack)
+        AuthServiceImpl(storageStack: coreAssembly.makeStorageStack())
     }
     
     func makeImageFetchService() -> ImageFetchService {
-        ImageFetchServiceImpl(networkStack: networkStack, userDefaultsStack: userDefaultsStack)
+        ImageFetchServiceImpl(networkStack: coreAssembly.makeNetworkStack(), storageStack: coreAssembly.makeStorageStack())
     }
 
 }

@@ -30,8 +30,6 @@
 		EB6D932B29FDEA43008AAAC8 /* AuthAsssemblyImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6D932A29FDEA43008AAAC8 /* AuthAsssemblyImpl.swift */; };
 		EB6D932F29FE9A2D008AAAC8 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6D932E29FE9A2D008AAAC8 /* AuthService.swift */; };
 		EB6D933129FE9A47008AAAC8 /* AuthServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6D933029FE9A47008AAAC8 /* AuthServiceImpl.swift */; };
-		EB6D933C29FEAB9E008AAAC8 /* UserDefaultsStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6D933B29FEAB9E008AAAC8 /* UserDefaultsStack.swift */; };
-		EB6D933E29FEABB0008AAAC8 /* UserDefaultsStackImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6D933D29FEABB0008AAAC8 /* UserDefaultsStackImpl.swift */; };
 		EB6D934129FEAC0E008AAAC8 /* CoreAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6D934029FEAC0E008AAAC8 /* CoreAssembly.swift */; };
 		EB6D934329FEAC19008AAAC8 /* CoreAssemblyImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6D934229FEAC19008AAAC8 /* CoreAssemblyImpl.swift */; };
 		EB6D934529FEB350008AAAC8 /* AuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6D934429FEB350008AAAC8 /* AuthError.swift */; };
@@ -58,6 +56,8 @@
 		EB6D939129FFE2BE008AAAC8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EB6D939329FFE2BE008AAAC8 /* InfoPlist.strings */; };
 		EB6D939529FFE3DC008AAAC8 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6D939429FFE3DC008AAAC8 /* String+Extensions.swift */; };
 		EB6D939829FFEA36008AAAC8 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6D939729FFEA36008AAAC8 /* UIViewController+Extensions.swift */; };
+		EB6D939B2A0005F3008AAAC8 /* StorageStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6D939A2A0005F3008AAAC8 /* StorageStack.swift */; };
+		EB6D939D2A000602008AAAC8 /* StorageStackImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6D939C2A000602008AAAC8 /* StorageStackImpl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -87,8 +87,6 @@
 		EB6D932A29FDEA43008AAAC8 /* AuthAsssemblyImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAsssemblyImpl.swift; sourceTree = "<group>"; };
 		EB6D932E29FE9A2D008AAAC8 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		EB6D933029FE9A47008AAAC8 /* AuthServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServiceImpl.swift; sourceTree = "<group>"; };
-		EB6D933B29FEAB9E008AAAC8 /* UserDefaultsStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsStack.swift; sourceTree = "<group>"; };
-		EB6D933D29FEABB0008AAAC8 /* UserDefaultsStackImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsStackImpl.swift; sourceTree = "<group>"; };
 		EB6D934029FEAC0E008AAAC8 /* CoreAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreAssembly.swift; sourceTree = "<group>"; };
 		EB6D934229FEAC19008AAAC8 /* CoreAssemblyImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreAssemblyImpl.swift; sourceTree = "<group>"; };
 		EB6D934429FEB350008AAAC8 /* AuthError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthError.swift; sourceTree = "<group>"; };
@@ -116,6 +114,8 @@
 		EB6D939229FFE2BE008AAAC8 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		EB6D939429FFE3DC008AAAC8 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		EB6D939729FFEA36008AAAC8 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
+		EB6D939A2A0005F3008AAAC8 /* StorageStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageStack.swift; sourceTree = "<group>"; };
+		EB6D939C2A000602008AAAC8 /* StorageStackImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageStackImpl.swift; sourceTree = "<group>"; };
 		EEACD74A07E757E0BD130B5B /* Pods-Gallery.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gallery.debug.xcconfig"; path = "Target Support Files/Pods-Gallery/Pods-Gallery.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -371,19 +371,10 @@
 			isa = PBXGroup;
 			children = (
 				EB6D933F29FEABF4008AAAC8 /* CoreAssembly */,
-				EB6D933A29FEAB7E008AAAC8 /* UserDefaultsStack */,
+				EB6D939E2A00060A008AAAC8 /* StorageStack */,
 				EB6D936B29FEE3E2008AAAC8 /* NetworkStack */,
 			);
 			path = Core;
-			sourceTree = "<group>";
-		};
-		EB6D933A29FEAB7E008AAAC8 /* UserDefaultsStack */ = {
-			isa = PBXGroup;
-			children = (
-				EB6D933B29FEAB9E008AAAC8 /* UserDefaultsStack.swift */,
-				EB6D933D29FEABB0008AAAC8 /* UserDefaultsStackImpl.swift */,
-			);
-			path = UserDefaultsStack;
 			sourceTree = "<group>";
 		};
 		EB6D933F29FEABF4008AAAC8 /* CoreAssembly */ = {
@@ -520,6 +511,15 @@
 			path = UIKit;
 			sourceTree = "<group>";
 		};
+		EB6D939E2A00060A008AAAC8 /* StorageStack */ = {
+			isa = PBXGroup;
+			children = (
+				EB6D939A2A0005F3008AAAC8 /* StorageStack.swift */,
+				EB6D939C2A000602008AAAC8 /* StorageStackImpl.swift */,
+			);
+			path = StorageStack;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -532,6 +532,7 @@
 				EB6D92AF29FDA39B008AAAC8 /* Frameworks */,
 				EB6D92B029FDA39B008AAAC8 /* Resources */,
 				EB6D92E029FDC594008AAAC8 /* ShellScript */,
+				52AF757D870687E44DB0A190 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -590,6 +591,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		52AF757D870687E44DB0A190 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Gallery/Pods-Gallery-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Gallery/Pods-Gallery-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Gallery/Pods-Gallery-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		898DE10EB72F84438BB288B9 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -650,6 +668,7 @@
 				EB6D938229FF1197008AAAC8 /* DetailsAssembly.swift in Sources */,
 				EB6D937B29FF0CAB008AAAC8 /* DetailsViewOutput.swift in Sources */,
 				EB6D932429FDE710008AAAC8 /* AuthCoordinator.swift in Sources */,
+				EB6D939D2A000602008AAAC8 /* StorageStackImpl.swift in Sources */,
 				EB6D935229FEB812008AAAC8 /* GalleryAssemblyImpl.swift in Sources */,
 				EB6D931629FDE387008AAAC8 /* MainViewOutput.swift in Sources */,
 				EB6D937729FF0C90008AAAC8 /* DetailsViewController.swift in Sources */,
@@ -658,7 +677,6 @@
 				EB6D92EE29FDC9C5008AAAC8 /* Reusable.swift in Sources */,
 				EB6D930329FDE0FC008AAAC8 /* RootCoordinator.swift in Sources */,
 				EB6D92E529FDC93A008AAAC8 /* ImageCollectionViewCell.swift in Sources */,
-				EB6D933E29FEABB0008AAAC8 /* UserDefaultsStackImpl.swift in Sources */,
 				EB6D934B29FEB746008AAAC8 /* GalleryViewOutput.swift in Sources */,
 				EB6D936129FEE232008AAAC8 /* ImageFetchService.swift in Sources */,
 				EB6D933129FE9A47008AAAC8 /* AuthServiceImpl.swift in Sources */,
@@ -669,6 +687,7 @@
 				EB6D931429FDE35D008AAAC8 /* MainViewModel.swift in Sources */,
 				EB6D938629FF11C7008AAAC8 /* DetailsCoordinator.swift in Sources */,
 				EB6D92BA29FDA39B008AAAC8 /* MainViewController.swift in Sources */,
+				EB6D939B2A0005F3008AAAC8 /* StorageStack.swift in Sources */,
 				EB6D937929FF0C9D008AAAC8 /* DetailsViewModel.swift in Sources */,
 				EB6D92B629FDA39B008AAAC8 /* AppDelegate.swift in Sources */,
 				EB6D935429FEB859008AAAC8 /* GalleryCoordinator.swift in Sources */,
@@ -682,7 +701,6 @@
 				EB6D939529FFE3DC008AAAC8 /* String+Extensions.swift in Sources */,
 				EB6D936829FEE3CC008AAAC8 /* NetworkStackImpl.swift in Sources */,
 				EB6D939829FFEA36008AAAC8 /* UIViewController+Extensions.swift in Sources */,
-				EB6D933C29FEAB9E008AAAC8 /* UserDefaultsStack.swift in Sources */,
 				EB6D936A29FEE3D9008AAAC8 /* NetworkError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

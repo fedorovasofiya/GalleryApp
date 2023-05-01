@@ -9,8 +9,8 @@ import Foundation
 
 final class CoreAssemblyImpl: CoreAssembly {
     
-    func makeUserDefaultsStack() -> UserDefaultsStack {
-        return UserDefaultsStackImpl()
+    func makeStorageStack() -> StorageStack {
+        return StorageStackImpl()
     }
     
     func makeNetworkStack() -> NetworkStack {

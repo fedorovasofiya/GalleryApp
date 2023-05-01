@@ -1,16 +1,20 @@
 PODS:
+  - KeychainSwift (20.0.0)
   - SwiftLint (0.51.0)
 
 DEPENDENCIES:
+  - KeychainSwift (~> 20.0)
   - SwiftLint
 
 SPEC REPOS:
   trunk:
+    - KeychainSwift
     - SwiftLint
 
 SPEC CHECKSUMS:
+  KeychainSwift: 0ce6a4d13f7228054d1a71bb1b500448fb2ab837
   SwiftLint: 1b7561918a19e23bfed960e40759086e70f4dba5
 
-PODFILE CHECKSUM: 870870c544fc38f6f253237e0adeb064b5e6878c
+PODFILE CHECKSUM: f68c7857d3f75b8fb9df49e25305d1a5c3e6a9f9
 
 COCOAPODS: 1.12.0

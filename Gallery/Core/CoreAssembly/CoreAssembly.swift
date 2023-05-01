@@ -8,6 +8,6 @@
 import Foundation
 
 protocol CoreAssembly {
-    func makeUserDefaultsStack() -> UserDefaultsStack
+    func makeStorageStack() -> StorageStack
     func makeNetworkStack() -> NetworkStack
 }

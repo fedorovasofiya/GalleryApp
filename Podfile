@@ -7,5 +7,6 @@ target 'Gallery' do
 
   # Pods for Gallery
   pod 'SwiftLint'
+  pod 'KeychainSwift', '~> 20.0'
 
 end

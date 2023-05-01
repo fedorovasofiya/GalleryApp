@@ -18,13 +18,13 @@ final class ImageFetchServiceImpl: ImageFetchService {
     }
     
     private let networkStack: NetworkStack
-    private let userDefaultsStack: UserDefaultsStack
+    private let storageStack: StorageStack
     
     // MARK: - Init
 
-    init(networkStack: NetworkStack, userDefaultsStack: UserDefaultsStack) {
+    init(networkStack: NetworkStack, storageStack: StorageStack) {
         self.networkStack = networkStack
-        self.userDefaultsStack = userDefaultsStack
+        self.storageStack = storageStack
     }
     
     // MARK: - Public methods
@@ -84,7 +84,7 @@ final class ImageFetchServiceImpl: ImageFetchService {
     }
     
     private func getAccessToken() -> String? {
-        userDefaultsStack.getKey(keyName: "access_token", dataType: String.self)
+        storageStack.getKey(keyName: "access_token")
     }
 
 }

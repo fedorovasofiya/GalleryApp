@@ -23,12 +23,12 @@ final class AuthServiceImpl: AuthService {
     }
     
     private var expirationDate: Date?
-    private let userDefaultsStack: UserDefaultsStack
+    private let storageStack: StorageStack
     
     // MARK: - Init
     
-    init(userDefaultsStack: UserDefaultsStack) {
-        self.userDefaultsStack = userDefaultsStack
+    init(storageStack: StorageStack) {
+        self.storageStack = storageStack
         self.accessToken = getAccessToken()
         self.expirationDate = getExpirationDate()
     }
@@ -122,30 +122,35 @@ final class AuthServiceImpl: AuthService {
         else {
             throw AuthError.noExpiresIn
         }
-        let expirationDate = Date().addingTimeInterval(TimeInterval(expiresIn))
-        setExpirationDate(expirationDate: expirationDate)
+        setExpiresIn(expiresIn: expiresIn)
     }
     
     private func setAccessToken(accessToken: String) {
         self.accessToken = accessToken
-        userDefaultsStack.setKey(value: accessToken, keyName: Configuration.accessTokenParam)
+        storageStack.setKey(value: accessToken, keyName: Configuration.accessTokenParam)
     }
     
-    private func setExpirationDate(expirationDate: Date) {
+    private func setExpiresIn(expiresIn: Int) {
+        storageStack.setKey(value: String(expiresIn), keyName: Configuration.expiresInParam)
+        let expirationDate = Date().addingTimeInterval(TimeInterval(expiresIn))
         self.expirationDate = expirationDate
-        userDefaultsStack.setKey(value: expirationDate, keyName: Configuration.expiresInParam)
     }
     
     private func getAccessToken() -> String? {
-        userDefaultsStack.getKey(keyName: Configuration.accessTokenParam, dataType: String.self)
+        storageStack.getKey(keyName: Configuration.accessTokenParam)
     }
     
     private func getExpirationDate() -> Date? {
-        userDefaultsStack.getKey(keyName: Configuration.expiresInParam, dataType: Date.self)
+        guard let expiresInString = storageStack.getKey(keyName: Configuration.expiresInParam),
+              let expiresIn = Int(expiresInString) else {
+            return nil
+        }
+        let expirationDate = Date().addingTimeInterval(TimeInterval(expiresIn))
+        return expirationDate
     }
     
     private func removeAccountData() {
-        userDefaultsStack.removeKey(keyName: Configuration.accessTokenParam)
-        userDefaultsStack.removeKey(keyName: Configuration.expiresInParam)
+        storageStack.removeKey(keyName: Configuration.accessTokenParam)
+        storageStack.removeKey(keyName: Configuration.expiresInParam)
     }
 }
