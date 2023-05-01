@@ -1,0 +1,12 @@
+//
+//  Reusable.swift
+//  Gallery
+//
+//  Created by Sonya Fedorova on 30.04.2023.
+//
+
+import Foundation
+
+protocol Reusable {
+    static var reuseIdentifier: String { get }
+}
