@@ -126,7 +126,7 @@ final class DetailsViewController: UIViewController {
     }
     
     @objc private func didTapShare() {
-
+        showShareMenu()
     }
     
     // MARK: - Combine
@@ -139,6 +139,26 @@ final class DetailsViewController: UIViewController {
                 self.navigationItem.title = model.date
                 self.imageView.image = model.image
             })
+    }
+    
+    // MARK: - Tools
+    
+    private func showShareMenu() {
+        guard let image = imageView.image else {
+            print("nil")
+            return
+        }
+        let shareController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+        shareController.excludedActivityTypes = [.assignToContact, .print, .copyToPasteboard]
+        shareController.completionWithItemsHandler = { activityType, bool, _, error in
+            if error != nil {
+                print("error")
+            }
+            if bool && activityType == .saveToCameraRoll {
+                print("saved")
+            }
+        }
+        present(shareController, animated: true)
     }
 
 }
