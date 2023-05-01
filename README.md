@@ -25,6 +25,16 @@
 - Пакетный менеджер: Cocoapods
 - Сторонние библиотеки: KeychainSwift, SwiftLint
 
+### Комментарий:
+При наведении фокуса в текстовые поля в WebView в консоли печаются ошибки с констрейнтами. Похожие проблемы описаны в ссылках ниже:
+- https://stackoverflow.com/questions/46993890/wkwebview-layoutconstraints-issue
+- https://stackoverflow.com/questions/47113661/wkwebview-constrains-issue-when-keyboard-pops-up?rq=1
+
+Судя по ответам, проблема общая :(
+
+При открытии share-menu также в консоли печаются ошибки с констрейнтами. Аналогичная проблема описана здесь:
+- https://stackoverflow.com/questions/71518300/swift-uiactivitycontroller-constraints-error-on-ios15-4
+
 ## Описание проекта
 - Авторизация в социальной сети Вконтакте через OAuth с использованием WKWebView
 - Отображение фотографий из альбома https://vk.com/album-128666765_266310117 в Collection View. При нажатии открывается новый экран c показом фото. В заголовке дата загрузки фото.
