@@ -86,7 +86,7 @@ final class AuthViewController: UIViewController {
     
     @objc private func didTapRefresh() {
         activityIndicator.startAnimating()
-        viewModel.didTapRefresh()
+        viewModel.reloadRequest()
     }
     
     // MARK: - Combine
@@ -95,8 +95,14 @@ final class AuthViewController: UIViewController {
         requestSubscription = viewModel.requestPublisher?
             .subscribe(on: DispatchQueue.global())
             .receive(on: DispatchQueue.main)
-            .sink(receiveValue: { request in
-                self.webView.load(request)
+            .sink(receiveValue: { result in
+                switch result {
+                case .success(let request):
+                    self.webView.load(request)
+                case .failure(let error):
+                    self.activityIndicator.stopAnimating()
+                    self.presentAlert(title: "Error".localized(), message: error.localizedDescription)
+                }
             })
     }
     
@@ -105,9 +111,12 @@ final class AuthViewController: UIViewController {
 // MARK: - WKNavigationDelegate
 
 extension AuthViewController: WKNavigationDelegate {
-    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
-        // TODO: 3
+    
+    func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
         activityIndicator.stopAnimating()
+        viewModel.failedWithError(error) { message, okActionHandler in
+            self.presentAlert(title: "Error".localized(), message: message, okActionHandler: okActionHandler)
+        }
     }
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
@@ -117,8 +126,17 @@ extension AuthViewController: WKNavigationDelegate {
     func webView(_ webView: WKWebView,
                  decidePolicyFor navigationResponse: WKNavigationResponse,
                  decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
-        viewModel.decidePolicy(decidePolicyFor: navigationResponse) { policy in
-            decisionHandler(policy)
+        viewModel.decidePolicy(decidePolicyFor: navigationResponse) { result in
+            switch result {
+            case .success(let policy):
+                decisionHandler(policy)
+            case .failure(let error):
+                decisionHandler(.cancel)
+                self.presentAlert(title: "Error".localized(), message: error.localizedDescription) { _ in
+                    self.viewModel.reloadRequest()
+                }
+            }
+            
         }
     }
 }

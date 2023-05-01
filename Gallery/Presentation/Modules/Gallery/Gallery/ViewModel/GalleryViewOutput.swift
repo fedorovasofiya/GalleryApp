@@ -15,4 +15,5 @@ protocol GalleryViewOutput {
     func viewDidLoad()
     func didSelectItem(at index: Int)
     func didTapExit()
+    func reload()
 }

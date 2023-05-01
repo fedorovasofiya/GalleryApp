@@ -52,6 +52,9 @@ final class GalleryViewModel: GalleryViewOutput {
         authService.logOut()
         coordinator?.openGalleryScreen()
     }
+    func reload() {
+        loadData()
+    }
     
     private func loadData() {
         imageFetchService.fetchImages { completion in

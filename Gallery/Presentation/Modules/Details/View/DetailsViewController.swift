@@ -135,9 +135,16 @@ final class DetailsViewController: UIViewController {
         imageSubscription = viewModel.imagePublisher?
             .subscribe(on: DispatchQueue.global(qos: .userInitiated))
             .receive(on: DispatchQueue.main)
-            .sink(receiveValue: { model in
-                self.navigationItem.title = model.date
-                self.imageView.image = model.image
+            .sink(receiveValue: { result in
+                switch result {
+                case .success(let model):
+                    self.navigationItem.title = model.date
+                    self.imageView.image = model.image
+                case .failure(let error):
+                    self.presentAlertWithTryAgain(title: "Error".localized(), message: error.localizedDescription, tryAgainActionHandler: { _ in
+                        self.viewModel.reload()
+                    })
+                }
             })
     }
     
@@ -145,17 +152,17 @@ final class DetailsViewController: UIViewController {
     
     private func showShareMenu() {
         guard let image = imageView.image else {
-            print("nil")
+            self.presentAlert(title: "Error".localized(), message: "No data".localized())
             return
         }
         let shareController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
         shareController.excludedActivityTypes = [.assignToContact, .print, .copyToPasteboard]
         shareController.completionWithItemsHandler = { activityType, bool, _, error in
-            if error != nil {
-                print("error")
+            if let error = error {
+                self.presentAlert(title: "Error".localized(), message: error.localizedDescription)
             }
             if bool && activityType == .saveToCameraRoll {
-                print("saved")
+                self.presentAlert(title: "Success".localized(), message: "Photo saved successfully".localized())
             }
         }
         present(shareController, animated: true)
@@ -178,8 +185,8 @@ extension DetailsViewController: UICollectionViewDataSource {
         self.viewModel.getImageData(index: indexPath.row) { completion in
             DispatchQueue.main.async {
                 switch completion {
-                case .failure:
-                    break
+                case .failure(let error):
+                    self.presentAlert(title: "Error".localized(), message: error.localizedDescription)
                 case .success(let data):
                     guard let image = UIImage(data: data) else { return }
                     cell.configure(with: image)

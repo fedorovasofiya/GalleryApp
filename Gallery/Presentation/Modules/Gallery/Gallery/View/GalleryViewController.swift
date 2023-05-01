@@ -89,7 +89,9 @@ final class GalleryViewController: UIViewController {
                 case .success:
                     self.collectionView.reloadData()
                 case .failure(let error):
-                    print(error)
+                    self.presentAlertWithTryAgain(title: "Error".localized(), message: error.localizedDescription, tryAgainActionHandler: { _ in
+                        self.viewModel.reload()
+                    })
                 }
             })
     }
@@ -111,8 +113,8 @@ extension GalleryViewController: UICollectionViewDataSource {
         self.viewModel.getImageData(index: indexPath.row) { completion in
             DispatchQueue.main.async {
                 switch completion {
-                case .failure:
-                    break
+                case .failure(let error):
+                    self.presentAlert(title: "Error".localized(), message: error.localizedDescription)
                 case .success(let data):
                     guard let image = UIImage(data: data) else { return }
                     cell.configure(with: image)

@@ -11,7 +11,9 @@ import UIKit
 
 final class DetailsViewModel: DetailsViewOutput {
     
-    lazy var imagePublisher: PassthroughSubject<DisplayingImage, Never>? = PassthroughSubject()
+    lazy var imagePublisher: PassthroughSubject<Result<DisplayingImage, Error>, Never>? = PassthroughSubject()
+    
+    // MARK: - Private Properties
     
     private var data: [ImageModel]
     private var selectedIndex: Int
@@ -24,6 +26,8 @@ final class DetailsViewModel: DetailsViewOutput {
         self.imageFetchService = imageFetchService
         self.coordinator = coordinator
     }
+    
+    // MARK: - Public Methods
     
     func getCount() -> Int {
         return data.count
@@ -46,8 +50,15 @@ final class DetailsViewModel: DetailsViewOutput {
     }
     
     func didSelectItem(at index: Int) {
-        loadImageData(for: index)
+        self.selectedIndex = index
+        loadImageData(for: selectedIndex)
     }
+    
+    func reload() {
+        loadImageData(for: selectedIndex)
+    }
+    
+    // MARK: - Private Methods
     
     private func loadImageData(for index: Int) {
         guard data.indices.contains(index) else { return }
@@ -55,9 +66,9 @@ final class DetailsViewModel: DetailsViewOutput {
             switch result {
             case .success(let imageData):
                 let model = self.makeDisplayingImageModel(data: imageData, date: self.data[index].date)
-                self.imagePublisher?.send(model)
+                self.imagePublisher?.send(.success(model))
             case .failure(let error):
-                print(error)
+                self.imagePublisher?.send(.failure(error))
             }
         }
     }

@@ -10,9 +10,10 @@ import Combine
 import WebKit
 
 protocol AuthViewOutput {
-    var requestPublisher: PassthroughSubject<URLRequest, Never>? { get }
+    var requestPublisher: PassthroughSubject<Result<URLRequest, Error>, Never>? { get }
     func viewDidLoad()
-    func didTapRefresh()
+    func reloadRequest()
     func decidePolicy(decidePolicyFor navigationResponse: WKNavigationResponse,
-                      decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void)
+                      completion: @escaping (Result<WKNavigationResponsePolicy, Error>) -> Void)
+    func failedWithError(_ error: Error, alertAction: (String, @escaping (UIAlertAction) -> Void) -> Void)
 }

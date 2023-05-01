@@ -35,7 +35,7 @@ final class AuthServiceImpl: AuthService {
 
     // MARK: - Public Methods
     
-    func getAuthDialogURLRequest() -> URLRequest? {
+    func getAuthDialogURLRequest(completion: (Result<URLRequest, Error>) -> Void) {
         var urlComponents = URLComponents()
         urlComponents.scheme = "https"
         urlComponents.host = Configuration.authHost
@@ -47,10 +47,11 @@ final class AuthServiceImpl: AuthService {
             URLQueryItem(name: "scope", value: "photos"),
             URLQueryItem(name: "response_type", value: "token")
         ]
-        guard let url = urlComponents.url else {
-            return nil
+        if let url = urlComponents.url {
+            completion(.success(URLRequest(url: url)))
+        } else {
+            completion(.failure(AuthError.emptyURLRequest))
         }
-        return URLRequest(url: url)
     }
     
     func saveAccount(from url: URL?, completion: (Result<Void, Error>) -> Void) {

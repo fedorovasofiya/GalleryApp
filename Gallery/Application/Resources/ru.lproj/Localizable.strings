@@ -8,3 +8,25 @@
 /* GalleryViewController */
 "Logout" = "Выход";
 "Cancel" = "Отмена";
+
+/* DetailsViewController */
+"Success" = "Успешно";
+"Photo saved successfully" = "Фото успешно сохранено";
+
+/* Error handling */
+"Error" = "Ошибка";
+"Try again" = "Попробовать еще раз";
+
+"Incorrect URL" = "Некорректный URL";
+"Access denied" = "Доступ запрещен";
+"There is no access_token param in query items" = "Не найден параметр access_token";
+"There is no expires_in param in query items" = "Не найден параметр expires_in";
+"No internet connection" = "Нет интернет соединения";
+"There is no URL request to send" = "Нет URL запроса для отправки";
+
+"No data" = "Нет данных";
+"Invalid URL" = "Невалидный URL";
+"Redirect" = "Редирект";
+"Bad request" = "Неверный запрос";
+"Server error" = "Серверная ошибка";
+"Unexpected status" = "Неизвестный статус";

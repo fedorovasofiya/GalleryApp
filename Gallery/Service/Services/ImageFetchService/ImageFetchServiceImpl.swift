@@ -9,8 +9,6 @@ import Foundation
 
 final class ImageFetchServiceImpl: ImageFetchService {
     
-    // MARK: - Private properties
-    
     // MARK: - Private Properties
     
     private struct Configuration {
@@ -21,6 +19,8 @@ final class ImageFetchServiceImpl: ImageFetchService {
     
     private let networkStack: NetworkStack
     private let userDefaultsStack: UserDefaultsStack
+    
+    // MARK: - Init
 
     init(networkStack: NetworkStack, userDefaultsStack: UserDefaultsStack) {
         self.networkStack = networkStack
@@ -30,7 +30,10 @@ final class ImageFetchServiceImpl: ImageFetchService {
     // MARK: - Public methods
     
     func fetchImages(completion: @escaping (Result<[ImageModel], Error>) -> Void) {
-        guard let request = createPhotosRequest() else { return }
+        guard let request = createPhotosRequest() else {
+            completion(.failure(NetworkError.emptyURLRequest))
+            return
+        }
         networkStack.sendRequest(request) { (result: Result<APIResponse, Error>) in
             switch result {
             case .success(let response):
@@ -47,7 +50,7 @@ final class ImageFetchServiceImpl: ImageFetchService {
         networkStack.loadData(from: url, completion: completion)
     }
     
-    // MARK: - Private methods 689
+    // MARK: - Private methods
     
     private func mapData(models: [Item]) -> [ImageModel] {
         return models.compactMap { model in

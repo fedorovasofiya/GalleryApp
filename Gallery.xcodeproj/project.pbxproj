@@ -57,6 +57,7 @@
 		EB6D938E29FFE1E3008AAAC8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EB6D938C29FFE1E3008AAAC8 /* Localizable.strings */; };
 		EB6D939129FFE2BE008AAAC8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EB6D939329FFE2BE008AAAC8 /* InfoPlist.strings */; };
 		EB6D939529FFE3DC008AAAC8 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6D939429FFE3DC008AAAC8 /* String+Extensions.swift */; };
+		EB6D939829FFEA36008AAAC8 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6D939729FFEA36008AAAC8 /* UIViewController+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -114,6 +115,7 @@
 		EB6D938D29FFE1E3008AAAC8 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		EB6D939229FFE2BE008AAAC8 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		EB6D939429FFE3DC008AAAC8 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
+		EB6D939729FFEA36008AAAC8 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		EEACD74A07E757E0BD130B5B /* Pods-Gallery.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gallery.debug.xcconfig"; path = "Target Support Files/Pods-Gallery/Pods-Gallery.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -220,7 +222,7 @@
 		EB6D92E929FDC998008AAAC8 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				EB6D92EB29FDC9B1008AAAC8 /* UICollectionViewCell+Extensions.swift */,
+				EB6D939929FFEA3B008AAAC8 /* UIKit */,
 				EB6D939429FFE3DC008AAAC8 /* String+Extensions.swift */,
 			);
 			path = Extensions;
@@ -509,6 +511,15 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		EB6D939929FFEA3B008AAAC8 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				EB6D939729FFEA36008AAAC8 /* UIViewController+Extensions.swift */,
+				EB6D92EB29FDC9B1008AAAC8 /* UICollectionViewCell+Extensions.swift */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -670,6 +681,7 @@
 				EB6D92F729FDCF69008AAAC8 /* AuthViewModel.swift in Sources */,
 				EB6D939529FFE3DC008AAAC8 /* String+Extensions.swift in Sources */,
 				EB6D936829FEE3CC008AAAC8 /* NetworkStackImpl.swift in Sources */,
+				EB6D939829FFEA36008AAAC8 /* UIViewController+Extensions.swift in Sources */,
 				EB6D933C29FEAB9E008AAAC8 /* UserDefaultsStack.swift in Sources */,
 				EB6D936A29FEE3D9008AAAC8 /* NetworkError.swift in Sources */,
 			);

@@ -9,7 +9,7 @@ import Foundation
 
 protocol AuthService {
     var accessToken: String? { get }
-    func getAuthDialogURLRequest() -> URLRequest?
+    func getAuthDialogURLRequest(completion: (Result<URLRequest, Error>) -> Void)
     func saveAccount(from url: URL?, completion: (Result<Void, Error>) -> Void)
     func cleanCache()
     func isTokenValid() -> Bool

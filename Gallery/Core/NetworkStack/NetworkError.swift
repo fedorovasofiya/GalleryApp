@@ -14,23 +14,29 @@ enum NetworkError: Error {
     case badRequest
     case serverError
     case unexpectedStatus
+    case emptyURLRequest
+    case noInternetConnection
 }
 
 extension NetworkError: LocalizedError {
     var errorDescription: String? {
         switch self {
         case .noData:
-            return "No data"
+            return "No data".localized()
         case .invalidURL:
-            return "Invalid URL"
+            return "Invalid URL".localized()
         case .redirect:
-            return "Redirect"
+            return "Redirect".localized()
         case .badRequest:
-            return "Bad request"
+            return "Bad request".localized()
         case .serverError:
-            return "Server error"
+            return "Server error".localized()
         case .unexpectedStatus:
-            return "Unexpected status"
+            return "Unexpected status".localized()
+        case .noInternetConnection:
+            return "No internet connection".localized()
+        case .emptyURLRequest:
+            return "There is no URL request to send".localized()
         }
     }
 }
