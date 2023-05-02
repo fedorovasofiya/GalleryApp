@@ -31,7 +31,6 @@ final class AuthViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Authorization".localized()
-        view.addSubview(webView)
         view.backgroundColor = .systemBackground
         configureButtons()
         setupWebView()
