@@ -24,6 +24,11 @@ final class AuthServiceImpl: AuthService {
     
     private var expirationDate: Date?
     private let storageStack: StorageStack
+    private lazy var dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        return formatter
+    }()
     
     // MARK: - Init
     
@@ -131,8 +136,9 @@ final class AuthServiceImpl: AuthService {
     }
     
     private func setExpiresIn(expiresIn: Int) {
-        storageStack.setKey(value: String(expiresIn), keyName: Configuration.expiresInParam)
         let expirationDate = Date().addingTimeInterval(TimeInterval(expiresIn))
+        let expirationDateString = dateFormatter.string(from: expirationDate)
+        storageStack.setKey(value: expirationDateString, keyName: Configuration.expiresInParam)
         self.expirationDate = expirationDate
     }
     
@@ -141,12 +147,10 @@ final class AuthServiceImpl: AuthService {
     }
     
     private func getExpirationDate() -> Date? {
-        guard let expiresInString = storageStack.getKey(keyName: Configuration.expiresInParam),
-              let expiresIn = Int(expiresInString) else {
+        guard let expirationDateString = storageStack.getKey(keyName: Configuration.expiresInParam) else {
             return nil
         }
-        let expirationDate = Date().addingTimeInterval(TimeInterval(expiresIn))
-        return expirationDate
+        return dateFormatter.date(from: expirationDateString)
     }
     
     private func removeAccountData() {
