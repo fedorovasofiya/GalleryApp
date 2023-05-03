@@ -64,7 +64,7 @@ final class DetailsViewController: UIViewController {
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(
             image: UIImage(systemName: "square.and.arrow.up",
-                           withConfiguration: UIImage.SymbolConfiguration(weight: .semibold)),
+                           withConfiguration: UIImage.SymbolConfiguration(pointSize: 15, weight: .semibold, scale: .default)),
             style: .plain,
             target: self,
             action: #selector(didTapShare)
@@ -161,7 +161,7 @@ final class DetailsViewController: UIViewController {
             if let error = error {
                 self.presentAlert(title: "Error".localized(), message: error.localizedDescription)
             }
-            if bool && activityType == .saveToCameraRoll {
+            if bool && (activityType == .saveToCameraRoll || activityType?.rawValue == "com.apple.DocumentManagerUICore.SaveToFiles") {
                 self.presentAlert(title: "Success".localized(), message: "Photo saved successfully".localized())
             }
         }
